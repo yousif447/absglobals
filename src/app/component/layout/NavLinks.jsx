@@ -4,21 +4,24 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { t } from "../../i18n/navFooter";
 
-export default function NavLinks() {
+export default function NavLinks({ lang = "en" }) {
   const pathname = usePathname();
   const [hoveredHref, setHoveredHref] = useState(null);
+  const nav = t(lang, "nav");
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/contact-us", label: "Contact" },
-    { href: "/services", label: "Services" },
-    { href: "/blog", label: "Blog" },
-    { href: "/faq", label: "FAQ" },
-    { href: "/industries-served", label: "Industries Served" },
-    { href: "/our-partners", label: "Our Partners" },
-    { href: "/resources", label: "Resources" },
+    { href: `/${lang}`, label: nav.home },
+    { href: `/${lang}/about-us`, label: nav.about },
+    { href: `/${lang}/our-service`, label: nav.services },
+    { href: `/${lang}/blog`, label: nav.blogs },
+    { href: `/${lang}/faqs`, label: nav.faq },
+    { href: `/${lang}/industries-served`, label: nav.industriesServed },
+    { href: `/${lang}/our-partners`, label: nav.ourPartners },
+    { href: `/${lang}/resources`, label: nav.resources },
+    { href: `/${lang}/validation`, label: nav.validation },
+    { href: `/${lang}/contact-us`, label: nav.contact },
   ];
 
   const indicatorTarget = hoveredHref ?? pathname;

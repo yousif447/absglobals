@@ -18,73 +18,74 @@ import {
   MdOutlineEmail,
 } from "react-icons/md";
 import { FiArrowUpRight } from "react-icons/fi";
+import { t } from "../../i18n/navFooter";
 
-const quickLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/services", label: "Services" },
-  { href: "/contact-us", label: "Contact" },
-];
-
-const resourceLinks = [
-  { href: "/blog", label: "Blog" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/resources", label: "Resources" },
-  { href: "/our-partners", label: "Our Partners" },
-  { href: "/industries-served", label: "Industries Served" },
-];
-
-const socialLinks = [
-  {
-    href: "https://www.facebook.com/ABSGlobals",
-    icon: <FaFacebookF size={16} />,
-    label: "Facebook",
-    hoverClass: "social-facebook",
-  },
-  {
-    href: "https://www.twitter.com/",
-    icon: <BsTwitterX size={16} />,
-    label: "Twitter",
-    hoverClass: "social-twitter",
-  },
-  {
-    href: "https://www.instagram.com/abs_global_certificate/",
-    icon: <FaInstagram size={16} />,
-    label: "Instagram",
-    hoverClass: "social-instagram",
-  },
-  {
-    href: "https://www.linkedin.com/company/absglobal-iso-service",
-    icon: <FaLinkedinIn size={16} />,
-    label: "LinkedIn",
-    hoverClass: "social-linkedin",
-  },
-  {
-    href: "https://wa.me/",
-    icon: <FaWhatsapp size={16} />,
-    label: "WhatsApp",
-    hoverClass: "social-whatsapp",
-  },
-  {
-    href: "https://www.youtube.com/",
-    icon: <FaYoutube size={16} />,
-    label: "YouTube",
-    hoverClass: "social-youtube",
-  },
-];
-
-export default function Footer() {
+export default function Footer({ lang = "en", settings = {} }) {
+  const socialLinks = [
+    {
+      href: settings.Facebook || "https://www.facebook.com/ABSGlobals",
+      icon: <FaFacebookF size={16} />,
+      label: "Facebook",
+      hoverClass: "social-facebook",
+    },
+    {
+      href: settings.twitter || "https://www.twitter.com/",
+      icon: <BsTwitterX size={16} />,
+      label: "Twitter",
+      hoverClass: "social-twitter",
+    },
+    {
+      href: settings.instagram || "https://www.instagram.com/abs_global_certificate/",
+      icon: <FaInstagram size={16} />,
+      label: "Instagram",
+      hoverClass: "social-instagram",
+    },
+    {
+      href: settings.linkedin || "https://www.linkedin.com/company/absglobal-iso-service",
+      icon: <FaLinkedinIn size={16} />,
+      label: "LinkedIn",
+      hoverClass: "social-linkedin",
+    },
+    {
+      href: settings.whatsapp || "https://wa.me/+201026294642",
+      icon: <FaWhatsapp size={16} />,
+      label: "WhatsApp",
+      hoverClass: "social-whatsapp",
+    },
+    {
+      href: settings.youtube || "https://www.youtube.com/@ABSGLOBALS",
+      icon: <FaYoutube size={16} />,
+      label: "YouTube",
+      hoverClass: "social-youtube",
+    },
+  ];
   const currentYear = new Date().getFullYear();
+  const footer = t(lang, "footer");
+
+  const quickLinks = [
+    { href: `/${lang}`, label: footer.home },
+    { href: `/${lang}/about-us`, label: footer.aboutUs },
+    { href: `/${lang}/services`, label: footer.services },
+    { href: `/${lang}/contact-us`, label: footer.contactUs },
+  ];
+
+  const resourceLinks = [
+    { href: `/${lang}/blogs`, label: footer.blog },
+    { href: `/${lang}/faq`, label: footer.faq },
+    { href: `/${lang}/resources`, label: footer.resources },
+    { href: `/${lang}/our-partners`, label: footer.ourPartners },
+    { href: `/${lang}/industries-served`, label: footer.industriesServed },
+  ];
 
   return (
-    <footer className="footer-wrapper">
+    <footer className="footer-wrapper" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div className="footer-top-edge" />
 
       <div className="footer-main">
         <Container>
           <div className="footer-grid">
             <div className="footer-brand-col">
-              <Link href="/" className="footer-logo-link">
+              <Link href={`/${lang}`} className="footer-logo-link">
                 <Image
                   src="/logo.png"
                   alt="ABS Global Logo"
@@ -93,9 +94,7 @@ export default function Footer() {
                 />
               </Link>
               <p className="footer-brand-desc">
-                ABS Global is a leading provider of ISO certification and
-                management consulting services, helping organizations achieve
-                excellence and compliance worldwide.
+                {footer.brandDesc}
               </p>
 
               <div className="footer-social-row">
@@ -115,7 +114,7 @@ export default function Footer() {
             </div>
 
             <div className="footer-links-col">
-              <h4 className="footer-col-title">Quick Links</h4>
+              <h4 className={`footer-col-title ${lang === "ar" ? "font-heading" : "font-display"}`}>{footer.quickLinksTitle}</h4>
               <ul className="footer-link-list">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
@@ -129,7 +128,7 @@ export default function Footer() {
             </div>
 
             <div className="footer-links-col">
-              <h4 className="footer-col-title">Resources</h4>
+              <h4 className="footer-col-title">{footer.resourcesTitle}</h4>
               <ul className="footer-link-list">
                 {resourceLinks.map((link) => (
                   <li key={link.href}>
@@ -143,7 +142,7 @@ export default function Footer() {
             </div>
 
             <div className="footer-contact-col">
-              <h4 className="footer-col-title">Get in Touch</h4>
+              <h4 className="footer-col-title">{footer.getInTouchTitle}</h4>
 
               <div className="footer-contact-items">
                 <a
@@ -168,31 +167,9 @@ export default function Footer() {
                     <MdOutlineLocationOn size={18} />
                   </span>
                   <span>
-                    Head office: Hadayeq Alahram, Giza, Egypt <br />
-                    Maadi Office: Tower 3B, Engineers Towers, 18th floor, Cornich Al Maadi, Cairo, Egypt.,
+                    {footer.headOffice} <br />
+                    {footer.maadiOffice}
                   </span>
-                </div>
-              </div>
-
-              <div className="footer-newsletter">
-                <p className="footer-newsletter-label">
-                  Subscribe to our newsletter
-                </p>
-                <div className="footer-newsletter-form">
-                  <div className="footer-newsletter-input-wrap">
-                    <HiOutlineMail
-                      className="footer-newsletter-mail-icon"
-                      size={18}
-                    />
-                    <input
-                      type="email"
-                      placeholder="Your email address"
-                      className="footer-newsletter-input"
-                    />
-                  </div>
-                  <button className="footer-newsletter-btn" type="button">
-                    Subscribe
-                  </button>
                 </div>
               </div>
             </div>
@@ -204,15 +181,15 @@ export default function Footer() {
         <Container>
           <div className="footer-bottom-inner">
             <p className="footer-copyright">
-              © {currentYear} ABS Global. All rights reserved.
+              © {currentYear} {footer.copyright}
             </p>
             <div className="footer-bottom-links">
-              <Link href="/privacy" className="footer-bottom-link">
-                Privacy Policy
+              <Link href={`/${lang}/privacy`} className="footer-bottom-link">
+                {footer.privacyPolicy}
               </Link>
               <span className="footer-bottom-sep">·</span>
-              <Link href="/terms" className="footer-bottom-link">
-                Terms of Service
+              <Link href={`/${lang}/terms`} className="footer-bottom-link">
+                {footer.termsOfService}
               </Link>
             </div>
           </div>

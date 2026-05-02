@@ -8,29 +8,53 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import { BsTwitterX } from "react-icons/bs";
 import { Menu, X } from "lucide-react";
 import Button from "../ui/Button";
-import Image from "next/image";
+import LanguageToggle from "./LanguageToggle";
+import { t } from "../../i18n/navFooter";
 
-export default function MobileMenu() {
+export default function MobileMenu({ lang = "en" }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const nav = t(lang, "nav");
+  const isRtl = lang === "ar";
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/contact-us", label: "Contact" },
-    { href: "/services", label: "Services" },
-    { href: "/blog", label: "Blog" },
-    { href: "/faq", label: "FAQ" },
-    { href: "/industries-served", label: "Industries Served" },
-    { href: "/our-partners", label: "Our Partners" },
-    { href: "/resources", label: "Resources" },
+    { href: `/${lang}`, label: nav.home },
+    { href: `/${lang}/about-us`, label: nav.about },
+    { href: `/${lang}/our-service`, label: nav.services },
+    { href: `/${lang}/blog`, label: nav.blogs },
+    { href: `/${lang}/faqs`, label: nav.faq },
+    { href: `/${lang}/industries-served`, label: nav.industriesServed },
+    { href: `/${lang}/our-partners`, label: nav.ourPartners },
+    { href: `/${lang}/resources`, label: nav.resources },
+    { href: `/${lang}/validation`, label: nav.validation },
+    { href: `/${lang}/contact-us`, label: nav.contact },
   ];
 
   const socialLinks = [
-    { href: "https://www.facebook.com/ABSGlobals", icon: <FaFacebookF size={18} />, hoverClass: "social-facebook", label: "Facebook" },
-    { href: "https://www.twitter.com/", icon: <BsTwitterX size={18} />, hoverClass: "social-twitter", label: "Twitter" },
-    { href: "https://www.instagram.com/abs_global_certificate/", icon: <FaInstagram size={18} />, hoverClass: "social-instagram", label: "Instagram" },
-    { href: "https://www.linkedin.com/company/absglobal-iso-service", icon: <FaLinkedinIn size={18} />, hoverClass: "social-linkedin", label: "LinkedIn" },
+    {
+      href: "https://www.facebook.com/ABSGlobals",
+      icon: <FaFacebookF size={18} />,
+      hoverClass: "social-facebook",
+      label: "Facebook",
+    },
+    {
+      href: "https://www.twitter.com/",
+      icon: <BsTwitterX size={18} />,
+      hoverClass: "social-twitter",
+      label: "Twitter",
+    },
+    {
+      href: "https://www.instagram.com/abs_global_certificate/",
+      icon: <FaInstagram size={18} />,
+      hoverClass: "social-instagram",
+      label: "Instagram",
+    },
+    {
+      href: "https://www.linkedin.com/company/absglobal-iso-service",
+      icon: <FaLinkedinIn size={18} />,
+      hoverClass: "social-linkedin",
+      label: "LinkedIn",
+    },
   ];
 
   useEffect(() => {
@@ -38,11 +62,7 @@ export default function MobileMenu() {
   }, [pathname]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
@@ -57,7 +77,7 @@ export default function MobileMenu() {
   }, []);
 
   const linkVariants = {
-    closed: { opacity: 0, x: 20 },
+    closed: { opacity: 0, x: isRtl ? -20 : 20 },
     open: (i) => ({
       opacity: 1,
       x: 0,
@@ -67,42 +87,21 @@ export default function MobileMenu() {
 
   return (
     <div className="xl:hidden">
+      {/* Hamburger Button */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="relative z-50 p-2 rounded-[var(--radius-md)] hover:bg-gray-100 transition-colors"
-        aria-label="Toggle navigation menu"
-        id="mobile-menu-toggle"
+        onClick={() => setIsOpen(true)}
+        className="p-2 rounded-[var(--radius-md)] hover:bg-gray-100 transition-colors"
+        aria-label="Open navigation menu"
       >
-        <AnimatePresence mode="wait">
-          {isOpen ? (
-            <motion.div
-              key="close"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <X size={24} />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="menu"
-              initial={{ rotate: 90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Menu size={24} />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <Menu size={24} />
       </button>
 
       <AnimatePresence>
         {isOpen && (
           <>
+            {/* Overlay */}
             <motion.div
-              className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40"
+              className="fixed inset-0 bg-black/30 backdrop-blur-sm z-55"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -110,14 +109,29 @@ export default function MobileMenu() {
               onClick={() => setIsOpen(false)}
             />
 
+            {/* Drawer */}
             <motion.div
-              className="fixed top-0 right-0 h-full w-[min(340px,85vw)] bg-white z-40 shadow-[-8px_0_30px_rgba(0,0,0,0.1)] flex flex-col overflow-y-auto"
-              initial={{ x: "100%" }}
+              dir={isRtl ? "rtl" : "ltr"}
+              className={`fixed top-0 ${isRtl ? "left-0" : "right-0"} h-full w-[min(340px,85vw)] bg-white z-60 shadow-[-8px_0_30px_rgba(0,0,0,0.1)] flex flex-col overflow-y-auto`}
+              initial={{ x: isRtl ? "-100%" : "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              exit={{ x: isRtl ? "-100%" : "100%" }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
-              <div className="p-6 pt-20 flex flex-col h-full">
+              <div className="p-6 flex flex-col h-full">
+                {/* Close Button داخل الـ drawer */}
+                <div
+                  className={`flex ${isRtl ? "justify-start" : "justify-end"} mb-6`}
+                >
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="p-2 rounded-[var(--radius-md)] hover:bg-gray-100 transition-colors"
+                    aria-label="Close navigation menu"
+                  >
+                    <X size={24} />
+                  </button>
+                </div>
+
                 {/* Navigation Links */}
                 <div className="flex flex-col gap-1">
                   {navLinks.map((link, i) => (
@@ -134,7 +148,7 @@ export default function MobileMenu() {
                         className={`flex items-center px-4 py-3 rounded-[var(--radius-md)] text-[15px] font-medium transition-all duration-200 ${
                           pathname === link.href
                             ? "bg-[var(--primary-color)] text-white shadow-md"
-                            : "text-gray-600 hover:bg-gray-50 hover:text-[var(--primary-color)] hover:pl-6"
+                            : `text-gray-600 hover:bg-gray-50 hover:text-[var(--primary-color)] ${isRtl ? "hover:pr-6" : "hover:pl-6"}`
                         }`}
                       >
                         {link.label}
@@ -146,11 +160,10 @@ export default function MobileMenu() {
                 <div className="my-6 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
 
                 <div className="flex items-center gap-2 px-4 py-2 mb-4 rounded-[var(--radius-md)] hover:bg-gray-50 cursor-pointer transition-colors">
-                  <Image src="/us-flag.png" alt="United States Flag" width={20} height={20} />
-                  <p className="text-sm text-gray-600 font-medium">English</p>
+                  <LanguageToggle />
                 </div>
 
-                <Button className="w-full text-center">Get in Touch</Button>
+                <Button className="w-full text-center">{nav.getInTouch}</Button>
 
                 <div className="mt-auto pt-8 pb-4">
                   <div className="flex items-center justify-center gap-3">

@@ -3,7 +3,8 @@ import React from 'react'
 const variants = {
   primary: "bg-[var(--primary-color)] text-white",
   secondary: "bg-[var(--secondary-color)] text-white",
-  outline: "border border-[var(--primary-color)] text-[var(--primary-color)]"
+  outline: "border border-[var(--primary-color)] text-[var(--primary-color)]",
+  success: "bg-[#3fc150] text-white",
 }
 
 const sizes = {
@@ -19,6 +20,7 @@ export default function Button({children, variant = 'primary', size = 'md', clas
         rounded-[var(--radius-md)]
         transition
         hover:opacity-80
+        cursor-pointer
         ${variants[variant]}
         ${sizes[size]}
         ${className}

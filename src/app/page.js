@@ -1,11 +1,5 @@
-import Navbar from "./component/layout/Navbar";
-import Footer from "./component/layout/Footer";
+import { redirect } from 'next/navigation';
 
-export default function Home() {
-  return (
-    <div>
-      <Navbar/>
-      <Footer/>
-    </div>
-  );
+export default function RootPage() {
+  redirect('/en');
 }

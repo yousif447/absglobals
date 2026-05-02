@@ -1,0 +1,847 @@
+{
+  "pages": [
+    {
+      "id": 1,
+      "slug": "home",
+      "title": "Home Page",
+      "title_ar": "الصفحة الرئيسية",
+      "type": "page",
+      "created_at": "2026-04-23T00:00:00.000000Z",
+      "updated_at": "2026-04-23T00:00:00.000000Z",
+      "sections": [
+        {
+          "id": 10,
+          "page_id": 1,
+          "type": "Hero content",
+          "section_style": "static",
+          "data_source": null,
+          "content": [
+            {
+              "title": "Welcome to ABS Global",
+              "subtitle": "Your Partner in ISO Certification & Compliance",
+              "button_text": "Get Started",
+              "image": "/uploads/hero.jpg"
+            }
+          ],
+          "content_ar": [
+            {
+              "title": "مرحبًا بكم في ABS Global",
+              "subtitle": "شريكك في شهادات الأيزو والامتثال",
+              "button_text": "ابدأ الآن"
+            }
+          ],
+          "order": 1,
+          "created_at": "2026-04-23T00:00:00.000000Z",
+          "updated_at": "2026-04-23T00:00:00.000000Z"
+        }
+      ]
+    },
+
+    {
+      "id": 2,
+      "slug": "about-us",
+      "title": "About us",
+      "title_ar": "من نحن",
+      "type": "page",
+      "created_at": "2026-04-22T23:33:45.000000Z",
+      "updated_at": "2026-04-22T23:33:45.000000Z",
+      "sections": [
+        {
+          "id": 1,
+          "page_id": 1,
+          "type": "About content",
+          "section_style": "static",
+          "data_source": null,
+          "content": [
+            {
+              "image": "/about-us.png",
+              "title": "Welcome to official Website Of ABS Global",
+              "button_text": "IMS Certificates Request",
+              "description": "At ABS Global, we specialize in providing internationally recognized certifications for management systems, helping organizations achieve excellence in quality, environmental management, occupational health and safety, and food safety."
+            }
+          ],
+          "content_ar": [
+            {
+              "title": "أهلا ومرحبا بكم فى الموقع الرسمى لـ ABS Global",
+              "button_text": "سجل الآن وأطلب شهادتك",
+              "description": "في شركة ABS Global، نحن متخصصون في توفير شهادات معترف بها دوليًا لأنظمة الإدارة، ومساعدة المؤسسات على تحقيق التميز في الجودة، والإدارة البيئية، والصحة والسلامة المهنية، وسلامة الغذاء."
+            }
+          ],
+          "order": 1,
+          "created_at": "2026-04-22T23:33:45.000000Z",
+          "updated_at": "2026-04-22T23:33:45.000000Z"
+        },
+        {
+          "id": 2,
+          "page_id": 1,
+          "type": "Header content",
+          "section_style": "static",
+          "data_source": null,
+          "content": [
+            {
+              "title": "Welcome to ABS Global",
+              "description": "ABS Global specializes in providing internationally recognized certifications for management systems, helping organizations achieve excellence."
+            }
+          ],
+          "content_ar": [
+            {
+              "title": "أهلا ومرحبا بكم فى ABS Global",
+              "description": "تتخصص شركة ABS Global في تقديم شهادات معترف بها دوليًا لأنظمة الإدارة، مما يساعد المؤسسات على تحقيق التميز."
+            }
+          ],
+          "order": 2,
+          "created_at": "2026-04-22T23:33:45.000000Z",
+          "updated_at": "2026-04-22T23:36:28.000000Z"
+        },
+        {
+          "id": 3,
+          "page_id": 1,
+          "type": "Text Cards Content",
+          "section_style": "static",
+          "data_source": null,
+          "content": [
+            {
+              "title": "Company Overview",
+              "description": "ABS Global is a leading certification body in Egypt and the Middle East, specializing in providing international Management System certifications (ISO). Headquartered in the heart of Cairo, we offer a comprehensive suite of accreditation and auditing services to a diverse portfolio of local and international clients. We are committed to empowering organizations across various sectors to achieve operational excellence and gain access to global markets. We fulfill this by implementing the highest international standards of quality and sustainability, fully accredited by EGAC and recognized by IAF."
+            },
+            {
+              "title": "Mission",
+              "description": "At ABS Global, our mission is to deliver high-caliber accreditation services that add tangible value to our client's businesses. We strive to foster trust, integrity, and professionalism in everything we do, ensuring that organizations worldwide meet international standards while driving a culture of continuous improvement."
+            },
+            {
+              "title": "Accreditation and Registrations",
+              "description": "ABS Global is officially accredited by the Egyptian National Accreditation Council (EGAC), ensuring the highest standards of credibility and technical competence across all our certification services. We take pride in being a registered and recognized entity by the International Accreditation Forum (IAF) and the Egyptian Organization for Standardization and Quality (EOS). This standing reflects our unwavering commitment to upholding global standards and international best practices, empowering our clients to compete effectively in global markets."
+            },
+            {
+              "title": "Our Commitment",
+              "description": "At ABS Global, we are dedicated to excellence in every facet of our operations. Our team of highly experienced auditors and industry experts is committed to providing impartial, rigorous, and fair assessments. Our goal is to empower organizations to not only achieve but consistently maintain certifications to international standards, fostering a culture of long-term operational success."
+            },
+            {
+              "title": "Vision",
+              "description": "Our vision is to be a globally recognized leader in certification services, empowering organizations to achieve sustainable success and excellence through the effective implementation of international management systems."
+            }
+          ],
+          "content_ar": [
+            {
+              "title": "نظرة عامة على الشركة",
+              "description": "تعد ABS Global إحدى الهيئات الرائدة..."
+            }
+          ],
+          "order": 3,
+          "created_at": "2026-04-22T23:33:45.000000Z",
+          "updated_at": "2026-04-22T23:33:45.000000Z"
+        },
+        {
+          "id": 4,
+          "page_id": 1,
+          "type": "Why Chose Us",
+          "section_style": "static",
+          "data_source": null,
+          "content": [
+            {
+              "title": "Expertise",
+              "description": "Our team brings extensive knowledge and experience in certification services, ensuring reliable and trustworthy results."
+            },
+            {
+              "title": "Global Recognition",
+              "description": "Our certifications are recognized worldwide, opening doors to new opportunities and markets for our clients."
+            },
+            {
+              "title": "Customer Focus",
+              "description": "We uphold the highest standards of integrity, professionalism, and ethical conduct in all our interactions."
+            },
+            {
+              "title": "Integrity",
+              "description": "We uphold the highest standards of integrity, professionalism, and ethical conduct in all our interactions"
+            }
+          ],
+          "content_ar": [
+            {
+              "title": "خبرتنا",
+              "description": "يتمتع فريقنا بخبرة ومعرفة واسعة..."
+            }
+          ],
+          "order": 4,
+          "created_at": "2026-04-22T23:33:46.000000Z",
+          "updated_at": "2026-04-22T23:33:46.000000Z"
+        }
+      ],
+      "faqs": [],
+      "seo_meta": {
+        "id": 1,
+        "meta_title": "About Us | ISO Certification & Quality Management Experts"
+      }
+    },
+
+    {
+      "id": 3,
+      "slug": "services",
+      "title": "Our Services",
+      "title_ar": "خدماتنا",
+      "type": "page",
+      "created_at": "2026-04-23T00:00:00.000000Z",
+      "updated_at": "2026-04-23T00:00:00.000000Z",
+      "sections": [
+        {
+          "id": 5,
+          "page_id": 3,
+          "type": "Header content",
+          "section_style": "static",
+          "data_source": null,
+          "content": [
+            {
+              "title": "Our Services",
+              "subtitle": "ISO Certification & Consulting Services",
+              "description": "At ABS Global, we offer a comprehensive range of management system certifications to help organizations demonstrate their commitment to excellence, sustainability, and continuous improvement. Our certification services are designed to add value to your business, enhance your reputation, and open doors to new opportunities in the global marketplace. Explore our certification offerings below:",
+              "image": "/company-service.png"
+            }
+          ],
+          "content_ar": [
+            {
+              "title": "خدماتنا",
+              "subtitle": "خدمات الشهادات والاستشارات ISO",
+              "description": "تقدم شركة ABS Global مجموعة شاملة من خدمات الشهادات لأنظمة الإدارة لمساعدة المؤسسات على إظهار التزامها بالتميز والاستدامة والتحسين المستمر. تم تصميم خدمات الشهادات لدينا لإضافة قيمة إلى عملك وتعزيز سمعتك وفتح الأبواب أمام فرص جديدة في السوق العالمية. اكتشف عروض الشهادات لدينا أدناه:"
+            }
+          ],
+          "items": [
+            {
+              "id": 1,
+              "title": "Quality Management Systems",
+              "subtitle": "ISO 9001:2015",
+              "description": "ISO 9001:2015 is the internationally recognized standard for quality management systems. Achieving ISO 9001 certification demonstrates your organization's commitment to consistently providing products and services that meet customer and regulatory requirements, enhancing customer satisfaction, and driving continual improvement.",
+              "image": "/iso9001.jpg"
+            },
+            {
+              "id": 2,
+              "title": "Environmental Management Systems",
+              "subtitle": "ISO 14001:2015",
+              "description": "ISO 14001:2015 is the internationally recognized standard for environmental management systems. Achieving ISO 14001 certification demonstrates your organization's commitment to environmental responsibility, reducing environmental impact, and achieving sustainable development.",
+              "image": "/iso14001.png"
+            },
+            {
+              "id": 3,
+              "title": "Occupational Health and Safety Management Systems",
+              "subtitle": "ISO 45001:2018",
+              "description": "ISO 45001:2018 is the internationally recognized standard for occupational health and safety management systems. Achieving ISO 45001 certification demonstrates your organization's commitment to providing a safe and healthy workplace for employees, reducing workplace risks, and preventing work-related injuries and illnesses.",
+              "image": "/iso45001.png"
+            },
+            {
+              "id": 4,
+              "title": "Food Safety Management Systems",
+              "subtitle": "ISO 22000:2018",
+              "description": "ISO 22000:2018 is the internationally recognized standard for food safety management systems. Achieving ISO 22000 certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/iso22000.png"
+            },
+            {
+              "id": 5,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 6,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 7,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 8,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 9,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 10,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 11,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 12,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 13,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 14,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 15,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 16,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 17,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 18,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 19,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 20,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 21,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            },
+            {
+              "id": 22,
+              "title": "Food Safety",
+              "subtitle": "HACCP",
+              "description": "HACCP (Hazard Analysis and Critical Control Points) is a internationally recognized system for food safety management. Achieving HACCP certification demonstrates your organization's commitment to food safety, protecting consumers, and ensuring the safety of food products throughout the supply chain.",
+              "image": "/haccp.png"
+            }
+          ],
+          "items_ar": [
+            {
+              "title": "أنظمة إدارة الجودة",
+              "subtitle": "ISO 9001:2015",
+              "description": ""
+            }
+          ],
+          "order": 1,
+          "created_at": "2026-04-23T00:00:00.000000Z",
+          "updated_at": "2026-04-23T00:00:00.000000Z"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "blogs",
+      "title": "Blogs",
+      "title_ar": "المقالات",
+      "type": "page",
+      "created_at": "2026-04-23T00:00:00.000000Z",
+      "updated_at": "2026-04-23T00:00:00.000000Z",
+      "sections": [
+        {
+          "id": 20,
+          "page_id": 4,
+          "type": "Blogs Content",
+          "section_style": "static",
+          "data_source": null,
+          "content": [
+            {
+              "title": "Our Blogs",
+              "subtitle": "Latest Insights & Articles",
+              "description": "Explore our latest articles on ISO certifications , compliance, and international standards. Stay updated with expert insights, best practices, and practical guidance to help your organization achieve operational excellence and meet global requirements.",
+              "image": "/blogs.png"
+            }
+          ],
+          "items": [
+            { 
+              "id": 1, 
+              "title": "What is ISO Certification?", 
+              "slug": "what-is-iso-certification", 
+              "description": "Learn the fundamentals of ISO certifications, how they work, and why they are essential for ensuring quality, compliance, and credibility in today’s competitive global market.", 
+              "content": "Full blog content...", 
+              "image": "/blog.png" 
+            }, 
+            { 
+              "id": 2, 
+              "title": "Benefits of ISO 9001", 
+              "slug": "benefits-of-iso-9001", 
+              "description": "Discover how ISO 9001 helps organizations enhance product quality, improve customer satisfaction, streamline operations, and build a strong reputation in the marketplace.", 
+              "content": "Full blog content...", 
+              "image": "/blog.png" 
+            },
+            { 
+              "id": 3, 
+              "title": "ISO 14001 Explained", 
+              "slug": "iso-14001-explained", 
+              "description": "Understand the importance of environmental management systems and how ISO 14001 helps organizations reduce environmental impact and achieve sustainability goals.", 
+              "content": "Full blog content...", 
+              "image": "/blog.png" 
+            },
+            { 
+              "id": 4, 
+              "title": "ISO 45001 for Workplace Safety", 
+              "slug": "iso-45001-workplace-safety", 
+              "description": "Learn how ISO 45001 improves occupational health and safety by minimizing risks, preventing workplace incidents, and ensuring a safer environment for employees.", 
+              "content": "Full blog content...", 
+              "image": "/blog.png" 
+            },
+            { 
+              "id": 5, 
+              "title": "ISO 22000 and Food Safety", 
+              "slug": "iso-22000-food-safety", 
+              "description": "Explore how ISO 22000 ensures food safety across the supply chain by identifying risks, improving processes, and protecting consumers from potential hazards.", 
+              "content": "Full blog content...", 
+              "image": "/blog.png" 
+            },
+            { 
+              "id": 6, 
+              "title": "Why ISO Certification Matters", 
+              "slug": "why-iso-certification-matters", 
+              "description": "Discover why ISO certification is a valuable investment that boosts credibility, opens new market opportunities, and helps organizations maintain consistent standards.", 
+              "content": "Full blog content...", 
+              "image": "/blog.png" 
+            },
+            { 
+              "id": 6, 
+              "title": "Why ISO Certification Matters", 
+              "slug": "why-iso-certification-matters", 
+              "description": "Discover why ISO certification is a valuable investment that boosts credibility, opens new market opportunities, and helps organizations maintain consistent standards.", 
+              "content": "Full blog content...", 
+              "image": "/blog.png" 
+            },
+            { 
+              "id": 6, 
+              "title": "Why ISO Certification Matters", 
+              "slug": "why-iso-certification-matters", 
+              "description": "Discover why ISO certification is a valuable investment that boosts credibility, opens new market opportunities, and helps organizations maintain consistent standards.", 
+              "content": "Full blog content...", 
+              "image": "/blog.png" 
+            },
+            { 
+              "id": 6, 
+              "title": "Why ISO Certification Matters", 
+              "slug": "why-iso-certification-matters", 
+              "description": "Discover why ISO certification is a valuable investment that boosts credibility, opens new market opportunities, and helps organizations maintain consistent standards.", 
+              "content": "Full blog content...", 
+              "image": "/blog.png" 
+            },
+            { 
+              "id": 6, 
+              "title": "Why ISO Certification Matters", 
+              "slug": "why-iso-certification-matters", 
+              "description": "Discover why ISO certification is a valuable investment that boosts credibility, opens new market opportunities, and helps organizations maintain consistent standards.", 
+              "content": "Full blog content...", 
+              "image": "/blog.png" 
+            },
+            { 
+              "id": 6, 
+              "title": "Why ISO Certification Matters", 
+              "slug": "why-iso-certification-matters", 
+              "description": "Discover why ISO certification is a valuable investment that boosts credibility, opens new market opportunities, and helps organizations maintain consistent standards.", 
+              "content": "Full blog content...", 
+              "image": "/blog.png" 
+            },
+            { 
+              "id": 6, 
+              "title": "Why ISO Certification Matters", 
+              "slug": "why-iso-certification-matters", 
+              "description": "Discover why ISO certification is a valuable investment that boosts credibility, opens new market opportunities, and helps organizations maintain consistent standards.", 
+              "content": "Full blog content...", 
+              "image": "/blog.png" 
+            }
+          ],
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "our-partners",
+      "title": "Partners",
+      "title_ar": "شركاؤنا",
+      "type": "page",
+      "created_at": "2026-04-23T00:00:00.000000Z",
+      "updated_at": "2026-04-23T00:00:00.000000Z",
+      "sections": [
+        {
+          "id": 21,
+          "page_id": 5,
+          "type": "Partners Content",
+          "section_style": "static",
+          "content": [
+            {
+              "title": "Our Partners",
+              "subtitle": "Trusted by Leading Organizations",
+              "description": "We collaborate with top organizations.",
+              "image": "/partners.jpg"
+            }
+          ],
+          "items": [
+            {
+              "logo": "/egypt-flag.png",
+              "name": "Partner 1",
+              "type": "Strategic Partner"
+            },
+            {
+              "logo": "/egypt-flag.png",
+              "name": "Partner 2",
+              "type": "Technology Partner"
+            },
+            {
+              "logo": "/egypt-flag.png",
+              "name": "Partner 3",
+              "type": "Consulting Partner"
+            },
+            {
+              "logo": "/egypt-flag.png",
+              "name": "Partner 4",
+              "type": "Implementation Partner"
+            },
+            {
+              "logo": "/egypt-flag.png",
+              "name": "Partner 5",
+              "type": "Certification Body"
+            },
+            {
+              "logo": "/egypt-flag.png",
+              "name": "Partner 6",
+              "type": "Training Partner"
+            },
+            {
+              "logo": "/egypt-flag.png",
+              "name": "Partner 7",
+              "type": "Training Partner"
+            },
+            {
+              "logo": "/egypt-flag.png",
+              "name": "Partner 8",
+              "type": "Training Partner"
+            },
+            {
+              "logo": "/egypt-flag.png",
+              "name": "Partner 9",
+              "type": "Training Partner"
+            },
+            {
+              "logo": "/egypt-flag.png",
+              "name": "Partner 10",
+              "type": "Training Partner"
+            },
+            {
+              "logo": "/egypt-flag.png",
+              "name": "Partner 11",
+              "type": "Training Partner"
+            },
+            {
+              "logo": "/egypt-flag.png",
+              "name": "Partner 12",
+              "type": "Training Partner"
+            }
+          ],
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "faq",
+      "title": "FAQs",
+      "title_ar": "الأسئلة الشائعة",
+      "type": "page",
+      "sections": [
+        {
+          "id": 22,
+          "page_id": 6,
+          "type": "FAQs Content",
+          "section_style": "static",
+          "content": [
+            {
+              "title": "Frequently Asked Questions",
+              "description": "Common questions about our services.",
+              "image": "/faqs.png"
+            }
+          ],
+          "items": [
+            {
+              "title": "What is certification, and why is it important?",
+              "description": "Certification is a process by which an independent third party verifies that an organization meets specific standards or requirements. It is important because it demonstrates an organization’s commitment to quality, safety, environmental responsibility, and continuous improvement, enhancing credibility, reputation, and market access."
+            },
+            {
+              "title": "What is certification, and why is it important?",
+              "description": "Certification is a process by which an independent third party verifies that an organization meets specific standards or requirements. It is important because it demonstrates an organization’s commitment to quality, safety, environmental responsibility, and continuous improvement, enhancing credibility, reputation, and market access."
+            },
+            {
+              "title": "What is certification, and why is it important?",
+              "description": "Certification is a process by which an independent third party verifies that an organization meets specific standards or requirements. It is important because it demonstrates an organization’s commitment to quality, safety, environmental responsibility, and continuous improvement, enhancing credibility, reputation, and market access."
+            },
+            {
+              "title": "What is certification, and why is it important?",
+              "description": "Certification is a process by which an independent third party verifies that an organization meets specific standards or requirements. It is important because it demonstrates an organization’s commitment to quality, safety, environmental responsibility, and continuous improvement, enhancing credibility, reputation, and market access."
+            },
+            {
+              "title": "What is certification, and why is it important?",
+              "description": "Certification is a process by which an independent third party verifies that an organization meets specific standards or requirements. It is important because it demonstrates an organization’s commitment to quality, safety, environmental responsibility, and continuous improvement, enhancing credibility, reputation, and market access."
+            },
+            {
+              "title": "What is certification, and why is it important?",
+              "description": "Certification is a process by which an independent third party verifies that an organization meets specific standards or requirements. It is important because it demonstrates an organization’s commitment to quality, safety, environmental responsibility, and continuous improvement, enhancing credibility, reputation, and market access."
+            },
+            {
+              "title": "What is certification, and why is it important?",
+              "description": "Certification is a process by which an independent third party verifies that an organization meets specific standards or requirements. It is important because it demonstrates an organization’s commitment to quality, safety, environmental responsibility, and continuous improvement, enhancing credibility, reputation, and market access."
+            },
+            {
+              "title": "What is certification, and why is it important?",
+              "description": "Certification is a process by which an independent third party verifies that an organization meets specific standards or requirements. It is important because it demonstrates an organization’s commitment to quality, safety, environmental responsibility, and continuous improvement, enhancing credibility, reputation, and market access."
+            },
+            {
+              "title": "What is certification, and why is it important?",
+              "description": "Certification is a process by which an independent third party verifies that an organization meets specific standards or requirements. It is important because it demonstrates an organization’s commitment to quality, safety, environmental responsibility, and continuous improvement, enhancing credibility, reputation, and market access."
+            },
+            {
+              "title": "What is certification, and why is it important?",
+              "description": "Certification is a process by which an independent third party verifies that an organization meets specific standards or requirements. It is important because it demonstrates an organization’s commitment to quality, safety, environmental responsibility, and continuous improvement, enhancing credibility, reputation, and market access."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "benefits",
+      "title": "Benefits of Certification",
+      "title_ar": "فوائد الشهادات",
+      "type": "page",
+      "sections": [
+        {
+          "id": 23,
+          "page_id": 7,
+          "type": "Benefits Content",
+          "content": [
+            {
+              "title": "Benefits of Certification",
+              "description": "Key advantages of ISO certifications."
+            }
+          ],
+          "items": [
+            {
+              "title": "Credibility",
+              "description": "Build trust with clients."
+            },
+            {
+              "title": "Efficiency",
+              "description": "Improve operations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "process",
+      "title": "Certification Process",
+      "title_ar": "خطوات الحصول على الشهادة",
+      "type": "page",
+      "sections": [
+        {
+          "id": 24,
+          "page_id": 8,
+          "type": "Process Content",
+          "content": [
+            {
+              "title": "Process",
+              "description": "Steps to get certified."
+            }
+          ],
+          "items": [
+            {
+              "title": "Apply",
+              "description": "Submit application."
+            },
+            {
+              "title": "Audit",
+              "description": "Evaluation process."
+            },
+            {
+              "title": "Certification",
+              "description": "Get certified."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "industries-served",
+      "title": "Industries Served",
+      "title_ar": "القطاعات",
+      "type": "page",
+      "sections": [
+        {
+          "id": 25,
+          "page_id": 9,
+          "type": "Industries Content",
+          "content": [
+            {
+              "title": "Industries We Support",
+              "description": "Industries we support.",
+              "image": "/industries-served.png"
+            }
+          ],
+          "items": [
+            {
+              "title": "Agriculture, Forestry, and Fishing",
+              "description": "Certification in ISO 9001 ensures quality management systems are in place for agricultural operations, while ISO 14001 certification focuses on environmental management to minimize the ecological footprint. ISO 45001 certification ensures the safety and health of workers in these industries."
+            },
+            {
+              "title": "Food Products, Beverages, and Tobacco",
+              "description": "ISO 22000 certification is crucial for ensuring food safety management systems in the processing of food products, beverages, and tobacco. ISO 9001 and ISO 14001 certifications further enhance quality management and environmental sustainability in these industries."
+            },
+            {
+              "title": "Construction and Real Estate",
+              "description": "Certification in ISO 9001 ensures quality management systems are in place for agricultural operations, while ISO 14001 certification focuses on environmental management to minimize the ecological footprint. ISO 45001 certification ensures the safety and health of workers in these industries."
+            },
+            {
+              "title": "Healthcare",
+              "description": "Certification in ISO 9001 ensures quality management systems are in place for agricultural operations, while ISO 14001 certification focuses on environmental management to minimize the ecological footprint. ISO 45001 certification ensures the safety and health of workers in these industries."
+            },
+            {
+              "title": "Healthcare",
+              "description": "Certification in ISO 9001 ensures quality management systems are in place for agricultural operations, while ISO 14001 certification focuses on environmental management to minimize the ecological footprint. ISO 45001 certification ensures the safety and health of workers in these industries."
+            },
+            {
+              "title": "Healthcare",
+              "description": "Certification in ISO 9001 ensures quality management systems are in place for agricultural operations, while ISO 14001 certification focuses on environmental management to minimize the ecological footprint. ISO 45001 certification ensures the safety and health of workers in these industries."
+            },
+            {
+              "title": "Healthcare",
+              "description": "Certification in ISO 9001 ensures quality management systems are in place for agricultural operations, while ISO 14001 certification focuses on environmental management to minimize the ecological footprint. ISO 45001 certification ensures the safety and health of workers in these industries."
+            },
+            {
+              "title": "Healthcare",
+              "description": "Certification in ISO 9001 ensures quality management systems are in place for agricultural operations, while ISO 14001 certification focuses on environmental management to minimize the ecological footprint. ISO 45001 certification ensures the safety and health of workers in these industries."
+            },
+            {
+              "title": "Healthcare",
+              "description": "Certification in ISO 9001 ensures quality management systems are in place for agricultural operations, while ISO 14001 certification focuses on environmental management to minimize the ecological footprint. ISO 45001 certification ensures the safety and health of workers in these industries."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "resources",
+      "title": "Resources",
+      "title_ar": "المصادر",
+      "type": "page",
+      "sections": [
+        {
+          "id": 26,
+          "page_id": 10,
+          "type": "Resources Content",
+          "content": [
+            {
+              "title": "Our Resources",
+              "description": "Useful materials.",
+              "image": "/resources.png"
+            }
+          ],
+          "items": [
+            {
+              "title": "Impartiality Policy",
+              "description": "Our Impartiality Policy ensures that all certification activities are conducted objectively, without bias or influence."
+            },
+            {
+              "title": "Impartiality Policy",
+              "description": "Our Impartiality Policy ensures that all certification activities are conducted objectively, without bias or influence."
+            },
+            {
+              "title": "Impartiality Policy",
+              "description": "Our Impartiality Policy ensures that all certification activities are conducted objectively, without bias or influence."
+            },
+            {
+              "title": "Impartiality Policy",
+              "description": "Our Impartiality Policy ensures that all certification activities are conducted objectively, without bias or influence."
+            },
+            {
+              "title": "Impartiality Policy",
+              "description": "Our Impartiality Policy ensures that all certification activities are conducted objectively, without bias or influence."
+            },
+            {
+              "title": "Impartiality Policy",
+              "description": "Our Impartiality Policy ensures that all certification activities are conducted objectively, without bias or influence."
+            },
+            {
+              "title": "Impartiality Policy",
+              "description": "Our Impartiality Policy ensures that all certification activities are conducted objectively, without bias or influence."
+            },
+            {
+              "title": "Impartiality Policy",
+              "description": "Our Impartiality Policy ensures that all certification activities are conducted objectively, without bias or influence."
+            },
+            {
+              "title": "Impartiality Policy",
+              "description": "Our Impartiality Policy ensures that all certification activities are conducted objectively, without bias or influence."
+            },
+            {
+              "title": "Impartiality Policy",
+              "description": "Our Impartiality Policy ensures that all certification activities are conducted objectively, without bias or influence."
+            },
+            {
+              "title": "Impartiality Policy",
+              "description": "Our Impartiality Policy ensures that all certification activities are conducted objectively, without bias or influence."
+            },
+            {
+              "title": "Impartiality Policy",
+              "description": "Our Impartiality Policy ensures that all certification activities are conducted objectively, without bias or influence."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
