@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { t } from "../../i18n/navFooter";
@@ -39,21 +39,18 @@ export default function NavLinks({ lang = "en" }) {
             onMouseEnter={() => setHoveredHref(link.href)}
             onMouseLeave={() => setHoveredHref(null)}
           >
-            <AnimatePresence>
-              {isIndicatorHere && (
-                <motion.span
-                  layoutId="nav-indicator"
-                  className="absolute inset-0 rounded-[var(--radius-md)] bg-[var(--primary-color)] rounded-[var(--radius-xl)]"
-                  style={{ zIndex: 0 }}
-                  initial={false}
-                  transition={{
-                    type: "spring",
-                    stiffness: 380,
-                    damping: 30,
-                  }}
-                />
-              )}
-            </AnimatePresence>
+            {isIndicatorHere && (
+              <motion.span
+                layoutId="nav-indicator"
+                className="absolute inset-0 rounded-[var(--radius-xl)] bg-[var(--primary-color)]"
+                style={{ zIndex: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 380,
+                  damping: 30,
+                }}
+              />
+            )}
 
             <span
               className="relative z-10 transition-colors duration-200"

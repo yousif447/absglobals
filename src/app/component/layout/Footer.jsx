@@ -65,13 +65,13 @@ export default function Footer({ lang = "en", settings = {} }) {
   const quickLinks = [
     { href: `/${lang}`, label: footer.home },
     { href: `/${lang}/about-us`, label: footer.aboutUs },
-    { href: `/${lang}/services`, label: footer.services },
+    { href: `/${lang}/our-service`, label: footer.services },
     { href: `/${lang}/contact-us`, label: footer.contactUs },
   ];
 
   const resourceLinks = [
-    { href: `/${lang}/blogs`, label: footer.blog },
-    { href: `/${lang}/faq`, label: footer.faq },
+    { href: `/${lang}/blog`, label: footer.blog },
+    { href: `/${lang}/faqs`, label: footer.faq },
     { href: `/${lang}/resources`, label: footer.resources },
     { href: `/${lang}/our-partners`, label: footer.ourPartners },
     { href: `/${lang}/industries-served`, label: footer.industriesServed },

@@ -61,11 +61,10 @@ export default function Navbar({ lang = "en", settings = {} }) {
 
   return (
     <nav
-      dir={lang === "ar" ? "rtl" : "ltr"}
-      className={`sticky top-0 z-50 ransition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-300 py-3 ${
         scrolled
-          ? "py-2 bg-white/85 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)]"
-          : "py-4 bg-white"
+          ? "bg-white/85 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)]"
+          : "bg-white"
       }`}
     >
       <Container>
@@ -108,7 +107,7 @@ export default function Navbar({ lang = "en", settings = {} }) {
               <LanguageToggle />
             </div>
 
-            <div className="hidden xl:block">
+            <div className="hidden 2xl:block">
               <Link href={"#contact"}>
                 <Button
                   className="py-2 px-3 rounded-[var(--radius-xl)]"

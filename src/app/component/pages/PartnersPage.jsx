@@ -34,10 +34,8 @@ export default function PartnersPage({ data , lang }) {
       {/* ── Partners Showcase ── */}
       <div className="relative overflow-hidden bg-gradient-to-br from-[#f8fafc] via-white to-[#f0f4f8]">
         {/* Decorative blurred orbs */}
-        <div className="absolute top-[-120px] right-[-80px] w-[400px] h-[400px] rounded-full
-          bg-[radial-gradient(circle,rgba(55,118,189,0.08)_0%,transparent_70%)] pointer-events-none" />
-        <div className="absolute bottom-[-100px] left-[-60px] w-[350px] h-[350px] rounded-full
-          bg-[radial-gradient(circle,rgba(223,6,34,0.05)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-[-120px] right-[-80px] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(55,118,189,0.08)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute bottom-[-100px] left-[-60px] w-[350px] h-[350px] rounded-full bg-[radial-gradient(circle,rgba(223,6,34,0.05)_0%,transparent_70%)] pointer-events-none" />
 
         <Container>
           <Section>
@@ -49,8 +47,7 @@ export default function PartnersPage({ data , lang }) {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
             >
-              <span className={`${lang === 'ar' ? 'font-header' : 'font-display'} inline-block text-[0.8rem] font-bold tracking-[0.08em] uppercase
-                text-[var(--primary-color)] bg-[rgba(55,118,189,0.08)] px-4 py-2 rounded-full mb-4`}>
+              <span className={`${lang === 'ar' ? 'font-header' : 'font-display'} inline-block text-[0.8rem] font-bold tracking-[0.08em] uppercase text-[var(--primary-color)] bg-[rgba(55,118,189,0.08)] px-4 py-2 rounded-full mb-4`}>
                 {partner.partnersHeader}
               </span>
               <h2 className={`${lang === 'ar' ? 'font-header' : 'font-display'} text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-[#0f172a] leading-[1.2] text-center`}>

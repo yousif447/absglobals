@@ -51,7 +51,7 @@ export default function IndustriesServedPage({data, lang = "en"}) {
             </h2>
           </div>
 
-          <div className="industries-list">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {items.map((item, index) => (
               <div key={uuid()} className="industry-row">
                 {/* Number */}

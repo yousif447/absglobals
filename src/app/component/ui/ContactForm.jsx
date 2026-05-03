@@ -124,7 +124,7 @@ export default function ContactForm({ lang = "en" }) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="contact-form" noValidate>
+    <form onSubmit={handleSubmit(onSubmit)} className="contact-form w-full lg:w-10/12" noValidate>
       {/* Success message */}
       {submitted && (
         <div className="contact-success">

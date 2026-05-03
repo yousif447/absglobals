@@ -10,7 +10,7 @@ export default function HeroSection({ data, lang = 'en' }) {
   return (
     /* hero-section */
     <section
-      className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden max-sm:min-h-[85vh]"
+      className="relative w-full min-h-[91vh] flex items-center justify-center overflow-hidden max-sm:min-h-[85vh]"
       id="hero"
     >
       {/* hero-image-wrapper */}

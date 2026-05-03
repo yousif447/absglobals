@@ -28,7 +28,7 @@ export default function ContactUsSection({lang = "en"}) {
         </div>
 
         {/* contact-grid */}
-        <div className="grid grid-cols-2 gap-12 items-start max-md:grid-cols-1 max-md:gap-8">
+        <div className="grid grid-cols-2 gap-12 items-start max-lg:grid-cols-1 max-lg:gap-8">
 
           {/* contact-info-col */}
           <div className="flex flex-col gap-6">
