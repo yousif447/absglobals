@@ -124,7 +124,7 @@ export default async function BlogPage({ lang, slug }) {
       {
         headers: {
           lang,
-          "x-increment-view": "1",
+          "view": "+1",
         },
         cache: "no-store",
       }
