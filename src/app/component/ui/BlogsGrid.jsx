@@ -18,6 +18,9 @@ function formatDate(iso) {
 
 function BlogCard({ item, lang, featured = false }) {
   const excerpt = stripHtml(item.content).slice(0, featured ? 220 : 85) + "…";
+  // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog`);
+  // const data = await res.json();
+  // const view = data.sections.find(item => item.type === "Blog List").content.items[0].view_count;
 
   return (
     <Link
