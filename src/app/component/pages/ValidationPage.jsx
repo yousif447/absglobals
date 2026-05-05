@@ -107,7 +107,7 @@ function SearchForm({ type, lang, onResult }) {
 
   const endpoint = isCompany
     ? `${process.env.NEXT_PUBLIC_CONTACT_API_URL}/validate-certificate`
-    : `${process.env.NEXT_PUBLIC_CONTACT_API_URL}/validate-certificate`;
+    : `${process.env.NEXT_PUBLIC_CONTACT_API_URL}/validate-individual-certificate`;
 
   const handleSearch = async (e) => {
     e.preventDefault();
