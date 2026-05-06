@@ -1,133 +1,231 @@
 "use client";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 function formatDate(dateStr) {
   if (!dateStr) return "—";
   return new Date(dateStr).toLocaleDateString("en-GB", {
-    year: "numeric", month: "long", day: "numeric",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 }
 
-export default function CertificateCard({ data, lang = "en" }) {
+const CERT_WIDTH = 580;
+
+export default function CertificateCard({ data }) {
+  const wrapperRef = useRef(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const updateScale = () => {
+      if (wrapperRef.current) {
+        const availableWidth = wrapperRef.current.offsetWidth;
+        setScale(Math.min(1, availableWidth / CERT_WIDTH));
+      }
+    };
+
+    updateScale();
+    window.addEventListener("resize", updateScale);
+    return () => window.removeEventListener("resize", updateScale);
+  }, []);
+
   return (
-    <div className="cert-wrapper">
-      <div className="cert-card">
+    <div
+      ref={wrapperRef}
+      className="w-full overflow-hidden"
+      style={{ height: `calc(${scale} * var(--cert-natural-height, auto))` }}
+    >
+      <div
+        className="origin-top-left"
+        style={{
+          transform: `scale(${scale})`,
+          width: `${CERT_WIDTH}px`,
+          transformOrigin: "top left",
+        }}
+      >
+        <div className="max-w-[580px] mx-auto flex border-2 border-[#1a6ab1] rounded-sm overflow-hidden bg-[url('/bg.jpeg')] bg-cover bg-no-repeat">
 
-        {/* ── Left blue sidebar ── */}
-        <div className="cert-sidebar">
-          <span className="cert-sidebar-text">
-            {data.iso_item?.name || "ISO"} Certificate
-          </span>
-        </div>
+          {/* Sidebar */}
+          <div className="w-1/12 bg-[#1a6ab1] flex items-center justify-center shrink-0">
+            <span className="text-white text-[32px] tracking-widest whitespace-nowrap [writing-mode:vertical-rl] rotate-180" style={{ fontFamily: "fantasy" }}>
+              {data.iso_item?.name} Certificate
+            </span>
+          </div>
 
-        {/* ── Main content ── */}
-        <div className="cert-body">
+          {/* Main */}
+          <div className="flex-1 flex flex-col">
 
-          {/* Header */}
-          <div className="cert-header">
-            <div className="cert-logo-wrap">
-              <Image src="/logo.png" alt="ABS Global" width={90} height={90} />
+            {/* Top bar */}
+            <div className="flex items-center justify-between px-4 gap-5">
+              <div className="relative h-[100px] w-1/2">
+                <Image src="/logo.png" alt="ABS Global" fill className="object-contain" />
+              </div>
+              <span className="relative h-[100px] w-1/2">
+                <Image src="/cert.png" alt="certificate Badge" fill className="object-contain" />
+              </span>
             </div>
-            <div className="cert-header-center">
-              <p className="cert-tagline">ABS Global Certificate of Compliance</p>
-              <h2 className="cert-company">{data.company_name}</h2>
+
+            {/* Body */}
+            <div className="flex-1 px-[18px] pb-0 pl-[14px]">
+
+              <p className="text-[11px] text-slate-700 font-semibold mb-1.5">
+                ABS Global Certificate of Compliance
+              </p>
+
+              <div className="flex items-center justify-between gap-2.5 mb-2.5">
+                <h2 className="text-[18px] font-extrabold text-slate-900 uppercase tracking-wide leading-tight m-0">
+                  {data.company_name}
+                </h2>
+                {data.company_logo && (
+                  <div className="w-[62px] h-[62px] border border-slate-300 rounded flex items-center justify-center shrink-0 overflow-hidden bg-white">
+                  </div>
+                )}
+              </div>
+
+              <p className="text-[11px] text-slate-500 leading-relaxed mb-2.5">
+                This certificate authoritatively certifies the implementation and continuous advancement
+                of an effective management system, which adheres to the requirements of the below:
+              </p>
+
+              <div className="text-[34px] font-extrabold text-slate-900 leading-none mb-0.5">
+                {data.iso_item?.name}
+              </div>
+              <div className="text-[14px] font-bold text-slate-800 mb-3.5">
+                {data.iso_item?.certificate_category}
+              </div>
+
+              {/* Details */}
+              {data.type === "published" ? (
+                <div className="rounded p-2.5 mb-2.5 space-y-1.5">
+                  <div className="flex items-start text-[11.5px]">
+                    <span className="font-bold text-slate-900 min-w-[110px] shrink-0 pt-px">Address:</span>
+                    <span className="text-slate-800 leading-snug">{data.company_address}</span>
+                  </div>
+                  <div className="flex items-start text-[11.5px] py-2">
+                    <span className="font-bold text-slate-900 min-w-[110px] shrink-0 pt-px">Scope:</span>
+                    <span className="text-slate-800 leading-snug">{data.scope}</span>
+                  </div>
+                  <div className="flex items-start text-[11.5px]">
+                    <div className="flex flex-1">
+                      <span className="font-bold text-slate-900 w-[90px] shrink-0 pt-px">Issue date:</span>
+                      <span className="text-slate-800">{formatDate(data.issue_date)}</span>
+                    </div>
+                    <div className="flex flex-1">
+                      <span className="font-bold text-slate-900 w-[90px] shrink-0 pt-px">Valid until:</span>
+                      <span className="text-slate-800">{formatDate(data.valid_until)}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start text-[11.5px]">
+                    <div className="flex flex-1">
+                      <span className="font-bold text-slate-900 w-[90px] shrink-0 pt-px">Initial issue date:</span>
+                      <span className="text-slate-800">{formatDate(data.initial_issue_date)}</span>
+                    </div>
+                    <div className="flex flex-1">
+                      <span className="font-bold text-slate-900 w-[90px] shrink-0 pt-px">Expiry date:</span>
+                      <span className="text-slate-800">{formatDate(data.expiry_date)}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start text-[11.5px]">
+                    <div className="flex flex-1">
+                      <span className="font-bold text-slate-900 w-[90px] shrink-0 pt-px leading-snug">Registration<br />No.:</span>
+                      <span className="font-bold text-slate-900">{data.registration_number}</span>
+                    </div>
+                    <div className="flex flex-1">
+                      <span className="font-bold text-slate-900 w-[90px] shrink-0 pt-px leading-snug">IAF Code:</span>
+                      <span className="font-bold text-slate-900">{data.iaf_code}</span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="relative rounded p-2.5 mb-2.5 space-y-1.5">
+                  <div className="absolute -top-9 left-0 text-[200px] font-extrabold text-[var(--primary-color)] shrink" style={{ fontFamily: "impact, sans-serif" }}>DRAFT</div>
+                  <div className="flex items-start text-[11.5px]">
+                    <span className="font-bold text-slate-900 min-w-[110px] shrink-0 pt-px">Address:</span>
+                    <span className="text-slate-800 leading-snug">{data.company_address}</span>
+                  </div>
+                  <div className="flex items-start text-[11.5px] py-2">
+                    <span className="font-bold text-slate-900 min-w-[110px] shrink-0 pt-px">Scope:</span>
+                    <span className="text-slate-800 leading-snug">{data.scope}</span>
+                  </div>
+                  <div className="flex items-start text-[11.5px]">
+                    <div className="flex flex-1">
+                      <span className="font-bold text-slate-900 w-[90px] shrink-0 pt-px">Issue date:</span>
+                      <span className="text-slate-800">{formatDate(data.issue_date)}</span>
+                    </div>
+                    <div className="flex flex-1">
+                      <span className="font-bold text-slate-900 w-[90px] shrink-0 pt-px">Valid until:</span>
+                      <span className="text-slate-800">{formatDate(data.valid_until)}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start text-[11.5px]">
+                    <div className="flex flex-1">
+                      <span className="font-bold text-slate-900 w-[90px] shrink-0 pt-px">Initial issue date:</span>
+                      <span className="text-slate-800">{formatDate(data.initial_issue_date)}</span>
+                    </div>
+                    <div className="flex flex-1">
+                      <span className="font-bold text-slate-900 w-[90px] shrink-0 pt-px">Expiry date:</span>
+                      <span className="text-slate-800">{formatDate(data.expiry_date)}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start text-[11.5px]">
+                    <div className="flex flex-1">
+                      <span className="font-bold text-slate-900 w-[90px] shrink-0 pt-px leading-snug">Registration<br />No.:</span>
+                      <span className="font-bold text-slate-900">{data.registration_number}</span>
+                    </div>
+                    <div className="flex flex-1">
+                      <span className="font-bold text-slate-900 w-[90px] shrink-0 pt-px leading-snug">IAF Code:</span>
+                      <span className="font-bold text-slate-900">{data.iaf_code}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Tallest line divider */}
+              <div className="mt-2.5 relative w-full h-1.5">
+                <Image src="/tallest line.png" alt="footer" fill className="object-contain" />
+              </div>
+
             </div>
-            {data.company_logo && (
-              <div className="cert-company-logo">
-                <img
-                  src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/storage/${data.company_logo}`}
-                  alt={data.company_name}
-                  className="w-[70px] h-[70px] object-contain"
-                  onError={(e) => e.target.style.display = "none"}
+
+            {/* Footer */}
+            <div className="grid grid-cols-3 gap-3 px-[18px] pl-[14px]">
+              <div>
+                <Image
+                  src="/sign.png"
+                  alt="Signature"
+                  width={150}
+                  height={80}
+                  className="object-contain w-10/12"
                 />
               </div>
-            )}
-          </div>
-
-          {/* Certificate badge */}
-          <div className="cert-badge-row">
-            <div className="cert-badge">Certificate</div>
-          </div>
-
-          {/* Description */}
-          <p className="cert-description">
-            This certificate authoritatively certifies the implementation and continuous advancement
-            of an effective management system, which adheres to the requirements of the below:
-          </p>
-
-          {/* ISO Standard */}
-          <div className="cert-iso-name">{data.iso_item?.name}</div>
-          <div className="cert-iso-category">{data.iso_item?.certificate_category}</div>
-
-          <div className="cert-divider" />
-
-          {/* Details grid */}
-          <div className="cert-details">
-            <div className="cert-detail-item cert-detail-full">
-              <span className="cert-detail-label">Address:</span>
-              <span className="cert-detail-value">{data.company_address}</span>
-            </div>
-            <div className="cert-detail-item cert-detail-full">
-              <span className="cert-detail-label">Scope:</span>
-              <span className="cert-detail-value">{data.scope}</span>
-            </div>
-            <div className="cert-detail-item">
-              <span className="cert-detail-label">Issue date:</span>
-              <span className="cert-detail-value">{formatDate(data.issue_date)}</span>
-            </div>
-            <div className="cert-detail-item">
-              <span className="cert-detail-label">Valid until:</span>
-              <span className="cert-detail-value">{formatDate(data.valid_until)}</span>
-            </div>
-            <div className="cert-detail-item">
-              <span className="cert-detail-label">Initial issue date:</span>
-              <span className="cert-detail-value">{formatDate(data.initial_issue_date)}</span>
-            </div>
-            <div className="cert-detail-item">
-              <span className="cert-detail-label">Expiry date:</span>
-              <span className="cert-detail-value">{formatDate(data.expiry_date)}</span>
-            </div>
-            <div className="cert-detail-item cert-detail-full">
-              <span className="cert-detail-label">Registration No.:</span>
-              <span className="cert-detail-value cert-reg-no">{data.registration_number}</span>
-            </div>
-          </div>
-
-          <div className="cert-divider" />
-
-          {/* Footer */}
-          <div className="cert-footer">
-            <div className="cert-footer-left">
-              <div className="cert-signature">Salah Gomaa</div>
-              <p className="cert-signer-name">Salah Gomaa</p>
-              <p className="cert-signer-title">MANAGING DIRECTOR</p>
-              <p className="cert-contact">+20233731792</p>
-              <p className="cert-contact">+201026294642</p>
-              <p className="cert-contact">info@absglobals.com</p>
-              <p className="cert-contact">Hadayeq Alahram Giza, Egypt</p>
-            </div>
-
-            <div className="cert-footer-logos">
-              {data.logos &&
-                Object.entries(data.logos).map(([key, url]) => (
-                  <img
-                    key={key}
-                    src={url.replace(
-                      "http://localhost:8000",
-                      process.env.NEXT_PUBLIC_BACKEND_URL || ""
-                    )}
-                    alt={key}
-                    className="cert-accred-logo"
-                    onError={(e) => (e.target.style.display = "none")}
+              <div className="col-span-2">
+                <div className="grid grid-cols-4 gap-1.5">
+                  <div className="relative h-24 w-full">
+                    <Image src="/iaf-logo.png" alt="IAF" fill className="object-contain" />
+                  </div>
+                  <div className="relative h-24 w-full">
+                    <Image src="/egac-logo.png" alt="EGAC" fill className="object-contain" />
+                  </div>
+                  <div className="relative h-24 w-full">
+                    <Image src="/iso9001-logo.png" alt="ISO 9001" fill className="object-contain" />
+                  </div>
+                  <div className="relative h-24 w-full">
+                    <Image src="/qr-code.png" alt="QR Code" fill className="object-contain" />
+                  </div>
+                </div>
+                <div className="mt-1">
+                  <Image
+                    src="/line.png"
+                    alt=""
+                    width={100}
+                    height={10}
+                    className="w-full h-auto block"
                   />
-                ))}
+                </div>
+              </div>
             </div>
 
-            {data.qr_codes && (
-              <div className="cert-qr">
-                <img src={data.qr_codes} alt="QR Code" className="w-[80px] h-[80px]" />
-              </div>
-            )}
           </div>
         </div>
       </div>

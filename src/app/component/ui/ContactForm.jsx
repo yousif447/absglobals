@@ -92,7 +92,7 @@ export default function ContactForm({ lang = "en" }) {
 
   const onSubmit = async (data) => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_CONTACT_API_URL}/certification-request`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/certification-request`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

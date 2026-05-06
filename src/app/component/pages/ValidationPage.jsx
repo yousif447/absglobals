@@ -106,8 +106,8 @@ function SearchForm({ type, lang, onResult }) {
     : (isAr ? "أدخل رمز الشهادة الشخصية..." : "Enter individual certificate code...");
 
   const endpoint = isCompany
-    ? `${process.env.NEXT_PUBLIC_CONTACT_API_URL}/validate-certificate`
-    : `${process.env.NEXT_PUBLIC_CONTACT_API_URL}/validate-individual-certificate`;
+    ? `${process.env.NEXT_PUBLIC_API_URL}/validate-certificate`
+    : `${process.env.NEXT_PUBLIC_API_URL}/validate-certificate`;
 
   const handleSearch = async (e) => {
     e.preventDefault();
