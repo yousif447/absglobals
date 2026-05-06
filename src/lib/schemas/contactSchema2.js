@@ -12,7 +12,7 @@ export const createContactSchema2 = (lang) => {
     contactName: z.string().min(1, ar ? 'الاسم مطلوب' : 'Contact name is required'),
     contactPhone: z.string().min(1, ar ? 'رقم الهاتف مطلوب' : 'Contact phone is required'),
     contactMail: z.string().min(1, ar ? 'البريد الإلكتروني مطلوب' : 'Email is required').email(ar ? 'بريد إلكتروني غير صحيح' : 'Please enter a valid email'),
-    isoStandard: z.string().min(1, ar ? 'اختر المعيار' : 'Please select a standard'),
+    isoStandard: z.array(z.string()).min(1, ar ? 'الرجاء اختيار معيار واحد على الأقل' : 'Please select at least one standard'),
     scopeOfCertification: z.string().min(1, ar ? 'نطاق الشهادة مطلوب' : 'Scope is required'),
     certificationType: z.string().min(1, ar ? 'نوع الشهادة مطلوب' : 'Certification type is required'),
     comments: z.string().min(1, ar ? 'الملاحظات مطلوبة' : 'Please add your comments or questions'),

@@ -84,7 +84,7 @@ export default function ContactForm({ lang = "en" }) {
   } = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
-      isoStandard: 'ISO 9001:2015',
+      isoStandard: ['ISO 9001:2015'],
       certificationType: '1st Surveillance',
       country: 'Egypt',
     },
@@ -287,12 +287,13 @@ export default function ContactForm({ lang = "en" }) {
       <div className="contact-field">
         <label className="contact-label">
           {contact.isoStandard} <span className="contact-req">*</span>
+          <span className="text-xs text-gray-400 ms-3">You Can Select Multiple Standards</span>
         </label>
         <div className="contact-radio-group">
           {ISO_STANDARDS.map((standard) => (
             <label key={standard} className="contact-radio-item">
               <input
-                type="radio"
+                type="checkbox"
                 value={standard}
                 className="contact-radio"
                 {...register('isoStandard')}
