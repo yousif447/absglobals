@@ -343,7 +343,7 @@ body{
   display: flex;
   gap: 3rem;
   width: max-content;
-  animation: marquee-scroll 5s linear infinite;
+  animation: marquee-scroll 15s linear infinite;
 }
 
 .partners-marquee-track:hover {

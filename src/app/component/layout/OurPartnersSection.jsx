@@ -40,7 +40,7 @@ export default function OurPartnersSection({data, lang = "en"}) {
         {/* Partners Marquee */}
         <div className="partners-marquee-wrapper">
           <div className="partners-marquee-track">
-            {[...partnerSection.content.items, ...partnerSection.content.items].map((partner, index) => (
+            {[...partnerSection.content.items, ...partnerSection.content.items, ...partnerSection.content.items,...partnerSection.content.items, ...partnerSection.content.items,...partnerSection.content.items,...partnerSection.content.items,...partnerSection.content.items, ...partnerSection.content.items].map((partner, index) => (
               <a href={partner.url} target="_blank" key={index} className="partners-marquee-item">
                 <img
                   src="/marwa.png"
