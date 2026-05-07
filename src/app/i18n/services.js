@@ -13,6 +13,11 @@ const translations = {
     lifecycleDescription:
       "From granting to withdrawing — understand every phase of the certification lifecycle.",
 
+    benefitsHeader: "Why Get Certified",
+    benefitsTitle: "The Value of ISO Certification",
+    benefitsDescription:
+      "Discover how internationally recognized certifications drive growth, build trust, and create lasting value for your organization.",
+
     previous: "Previous",
     next: "Next",
     step: "Step",
@@ -32,6 +37,11 @@ const translations = {
     lifecycleTitle: "عمليات الشهادة لكل مرحلة",
     lifecycleDescription:
       "من المنح إلى السحب — تعرّف على كل مراحل دورة الشهادة.",
+
+    benefitsHeader: "لماذا تحصل على الشهادة",
+    benefitsTitle: "قيمة شهادات الأيزو",
+    benefitsDescription:
+      "اكتشف كيف تساهم الشهادات المعترف بها دوليًا في تحقيق النمو وبناء الثقة وخلق قيمة مستدامة لمؤسستك.",
 
     previous: "السابق",
     next: "التالي",

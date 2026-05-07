@@ -5,6 +5,7 @@ import Container from "../layout/Container";
 import CertificatesGrid from "../ui/CertificatesGrid";
 import CertificationProcess from "../ui/CertificationProcess";
 import CertificationLifecycle from "../ui/CertificationLifecycle";
+import CertificationBenefits from "../ui/CertificationBenefits";
 import { t } from "@/app/i18n/services";
 
 export default function ServicesPage({data, lang = 'en'}) {
@@ -34,6 +35,15 @@ export default function ServicesPage({data, lang = 'en'}) {
       .map(s => s.trim())
       .filter(Boolean)
   }));
+  const benefits = data.faqs
+    ?.filter(item => item.order === 2)
+    ?.map(item => ({
+      id: item.id,
+      title: item.title,
+      description: item.description
+        .replace(/<[^>]*>/g, "")
+        .trim(),
+    }));
   return (
     <>
     <Section className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
@@ -79,6 +89,10 @@ export default function ServicesPage({data, lang = 'en'}) {
         <hr className="border-(--primary-color)/50 border-1" />
         <Section>
           <CertificationLifecycle items={lifeCycle} t={service} lang={lang}/>
+        </Section>
+        <hr className="border-(--primary-color)/50 border-1" />
+        <Section>
+          <CertificationBenefits items={benefits} t={service} lang={lang}/>
         </Section>
       </Container>
     </>

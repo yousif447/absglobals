@@ -59,10 +59,10 @@ export default function CertificateCard({ data }) {
             {/* Top bar */}
             <div className="flex items-center justify-between px-4 gap-5">
               <div className="relative h-[100px] w-1/2">
-                <Image src="/logo.png" alt="ABS Global" fill className="object-contain" />
+                <Image src="/logo.png" alt="ABS Global" sizes="100%" fill className="object-contain" />
               </div>
               <span className="relative h-[100px] w-1/2">
-                <Image src="/cert.png" alt="certificate Badge" fill className="object-contain" />
+                <Image src="/cert.png" alt="certificate Badge" sizes="100%" fill className="object-contain" />
               </span>
             </div>
 
@@ -79,7 +79,7 @@ export default function CertificateCard({ data }) {
                 </h2>
                 {data.certifiable?.logo && (
                   <div className="relative w-[62px] h-[62px] border border-slate-300 rounded flex items-center justify-center shrink-0 overflow-hidden bg-white">
-                    <Image src={`${process.env.NEXT_PUBLIC_IMAGES}${data.certifiable?.logo}`} alt="Company Logo" fill className="object-contain" />
+                    <Image src={`${process.env.NEXT_PUBLIC_IMAGES}${data.certifiable?.logo}`} alt="Company Logo" sizes="100%" fill className="object-contain" />
                   </div>
                 )}
               </div>
@@ -184,7 +184,7 @@ export default function CertificateCard({ data }) {
 
               {/* Tallest line divider */}
               <div className="mt-2.5 relative w-full h-1.5">
-                <Image src="/tallest line.png" alt="footer" fill className="object-contain" />
+                <Image src="/tallest line.png" alt="footer" sizes="100%" fill className="object-contain" />
               </div>
 
             </div>
@@ -193,7 +193,7 @@ export default function CertificateCard({ data }) {
             <div className="grid grid-cols-3 gap-3 px-[18px] pl-[14px]">
               <div>
                 <Image
-                  src={data.logos.signature}
+                  src={data.logos?.signature}
                   alt="Signature"
                   width={150}
                   height={80}
@@ -204,22 +204,22 @@ export default function CertificateCard({ data }) {
                 <div className="grid grid-cols-4 gap-1.5">
                   {data.qr_codes ? (
                     <div className="flex flex-col items-center gap-2 relative h-24 w-full mt-1">
-                      <Image src="/iaf-logo.png" alt="IAF" width={65} height={65} className="object-contain" />
+                      <Image src={data.logos.iaf} alt="IAF" width={65} height={65} className="object-contain" />
                       <Image src={`${process.env.NEXT_PUBLIC_IMAGES}${data.qr_codes}`} alt="QR Code" width={45} height={45} className="object-contain" />
                     </div>
                   ) : (
                     <div className="relative h-24 w-full">
-                      <Image src={data.logos.iaf} alt="IAF" fill className="object-contain" />
+                      <Image src={data.logos.iaf} alt="IAF" sizes="100%" fill className="object-contain" />
                     </div>
                   )}
                   <div className="relative h-24 w-full">
-                    <Image src={data.logos.egac} alt="EGAC" fill className="object-contain" />
+                    <Image src={data.logos.egac} alt="EGAC" sizes="100%" fill className="object-contain" />
                   </div>
                   <div className="relative h-24 w-full">
-                    <Image src={data.logos?.certificate} alt="ISO 9001" fill className="object-contain" />
+                    <Image src={data.logos?.certificate} alt="ISO 9001" sizes="100%" fill className="object-contain" />
                   </div>
                   <div className="relative h-24 w-full">
-                    <Image src={data.logos["validate-qr"]} alt="QR Code" fill className="object-contain" />
+                    <Image src={data.logos["validate-qr"]} alt="QR Code" sizes="100%" fill className="object-contain" />
                   </div>
                 </div>
                 <div className="mt-1">

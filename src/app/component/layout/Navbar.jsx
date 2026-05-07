@@ -88,7 +88,7 @@ export default function Navbar({ lang = "en", settings = {} }) {
               alt="ABS Global Logo"
               width={120}
               height={120}
-              priority
+              style={{ objectFit: "contain" }}
             />
           </Link>
 
