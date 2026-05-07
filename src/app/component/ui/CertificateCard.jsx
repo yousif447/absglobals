@@ -140,7 +140,7 @@ export default function CertificateCard({ data }) {
                 </div>
               ) : (
                 <div className="relative rounded p-2.5 mb-2.5 space-y-1.5">
-                  <div className="absolute -top-9 left-0 text-[200px] font-extrabold text-[var(--primary-color)] shrink" style={{ fontFamily: "impact, sans-serif" }}>DRAFT</div>
+                  <div className="absolute -top-13 left-0 text-[200px] font-extrabold text-[var(--primary-color)] shrink" style={{ fontFamily: "impact, sans-serif" }}>DRAFT</div>
                   <div className="flex items-start text-[11.5px]">
                     <span className="font-bold text-slate-900 min-w-[110px] shrink-0 pt-px">Address:</span>
                     <span className="text-slate-800 leading-snug">{data.certifiable?.address}</span>
@@ -193,7 +193,7 @@ export default function CertificateCard({ data }) {
             <div className="grid grid-cols-3 gap-3 px-[18px] pl-[14px]">
               <div>
                 <Image
-                  src={data.logos?.signature}
+                  src={data.logos.signature}
                   alt="Signature"
                   width={150}
                   height={80}
@@ -205,7 +205,7 @@ export default function CertificateCard({ data }) {
                   {data.qr_codes ? (
                     <div className="flex flex-col items-center gap-2 relative h-24 w-full mt-1">
                       <Image src="/iaf-logo.png" alt="IAF" width={65} height={65} className="object-contain" />
-                      <Image src="/qr-code.png" alt="QR Code" width={45} height={45} className="object-contain" />
+                      <Image src={`${process.env.NEXT_PUBLIC_IMAGES}${data.qr_codes}`} alt="QR Code" width={45} height={45} className="object-contain" />
                     </div>
                   ) : (
                     <div className="relative h-24 w-full">

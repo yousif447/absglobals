@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 
 export default function HeroSection({ data, lang = 'en' }) {
   const heroSection = data.sections.find(section => section.type === "Hero").content[0];
-  console.log(`${process.env.NEXT_PUBLIC_IMAGES}${heroSection.image}`)
   return (
     /* hero-section */
     <section
