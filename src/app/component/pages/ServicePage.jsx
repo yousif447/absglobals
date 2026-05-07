@@ -8,19 +8,21 @@ import Button from "../ui/Button";
 import { FaWhatsapp } from "react-icons/fa6";
 import ContactForm from "../ui/ContactForm";
 import { t } from "@/app/i18n/contact";
+import Image from "next/image";
 
 function stripHtml(html = "") {
   return html.replace(/<[^>]*>/g, "").trim();
 }
 
 // ─── Hero ──────────────────────────────────────────────────────────────────
-function HeroSection({ name, lang }) {
+function HeroSection({ name, image, lang }) {
   return (
     <Section className="relative w-full min-h-[55vh] flex items-center justify-center overflow-hidden">
-      <img
-        src="/man.jpg"
+      <Image
+        src={`${process.env.NEXT_PUBLIC_IMAGES}${image}`}
         alt="ABS Global"
-        className="absolute inset-0 w-full h-full object-cover"
+        fill
+        style={{ objectFit: "contain" }}
       />
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative z-10 text-center px-6 py-20 max-w-4xl mx-auto">
@@ -67,8 +69,8 @@ function CertificateOverview({ image, name, description, certificate_category, l
       <div className="flex sm:hidden flex-col gap-4 px-5 py-5 border-b border-[#e2e8f0]">
         {/* Row: logo + title/category */}
         <div className="flex items-center gap-4">
-          <div className="flex-shrink-0 w-[70px] h-[70px] rounded-xl overflow-hidden">
-            <img src="/iso9001.jpg" alt={name} className="w-full h-full object-cover rounded-xl" />
+          <div className="relative flex-shrink-0 w-[70px] h-[70px] rounded-xl overflow-hidden">
+            <Image src={`${process.env.NEXT_PUBLIC_IMAGES}${image}`} alt={name} fill style={{ objectFit: "contain" }}/>
           </div>
           <div className="flex flex-col gap-1.5 min-w-0">
             <h2 className={`${lang === "ar" ? "font-heading" : "font-display"} text-[1rem] font-bold text-[#0f172a] leading-tight`}>
@@ -87,8 +89,8 @@ function CertificateOverview({ image, name, description, certificate_category, l
       {/* ── Desktop layout (>= sm) ── */}
       <div className="hidden sm:flex items-center gap-6 px-8 py-6 border-b border-[#e2e8f0]">
         {/* Logo */}
-        <div className="flex-shrink-0 w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] rounded-xl overflow-hidden">
-          <img src="/iso9001.jpg" alt={name} className="w-full h-full object-cover rounded-xl" />
+        <div className="relative flex-shrink-0 w-[100px] h-[100px] lg:w-[120px] lg:h-[120px] overflow-hidden">
+          <Image src={`${process.env.NEXT_PUBLIC_IMAGES}${image}`} alt={name} fill style={{ objectFit: "contain" }}/>
         </div>
 
         {/* Name + category + actions — all in one row */}
@@ -288,7 +290,7 @@ export default async function ServicePage({ lang, slug }) {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/iso/${slug}`, {
       headers: { lang },
-      next: { revalidate: 86400 },
+      cache: "force-cache",
     });
     if (!res.ok) throw new Error(`${res.status}: ${res.statusText}`);
     data = (await res.json()).data;
@@ -303,7 +305,7 @@ export default async function ServicePage({ lang, slug }) {
 
   return (
     <>
-      <HeroSection name={name} lang={lang} />
+      <HeroSection name={name} image={image} lang={lang} />
 
       <Container>
         <Section>

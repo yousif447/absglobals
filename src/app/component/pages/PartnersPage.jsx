@@ -17,10 +17,9 @@ export default function PartnersPage({ data , lang }) {
       {/* ── Hero Banner ── */}
       <Section className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
         <Image
-          src="/partners.jpg"
+          src={`${process.env.NEXT_PUBLIC_IMAGES}${partnerHeader.image}`}
           alt="ABS Global team and certification"
           fill
-          priority
           style={{ objectFit: 'cover' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.9)] opacity-90 to-[rgba(0,0,0,0.85)]" />
@@ -78,18 +77,17 @@ export default function PartnersPage({ data , lang }) {
 
                   <a href={item.url} target="_blank" rel="noopener noreferrer">
                     <div className="partner-card-inner">
-                      <div className="partner-logo-wrap">
+                      <div className="partner-logo-wrap relative w-[70px] h-[70px] md:w-[88px] md:h-[88px]">
                         <Image
-                          src="/logo.png"
+                          src={`${process.env.NEXT_PUBLIC_IMAGES}${item.image}`}
                           alt={item.name || 'Partner logo'}
-                          width={80}
-                          height={80}
+                          fill
                           className="object-contain transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
 
                       <div className="partner-info">
-                        <h3 className={`${lang === 'ar' ? 'font-header' : 'font-display'} partner-name`}>{item.name}</h3>
+                        <h3 className={`${lang === 'ar' ? 'font-header' : 'font-display'} text-[10px] md:font-bold md:text-[16px]`}>{item.name}</h3>
                       </div>
                     </div>
                   </a>

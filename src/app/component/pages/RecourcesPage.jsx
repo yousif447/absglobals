@@ -14,18 +14,17 @@ export default function RecourcesPage({ data, lang = "en" }) {
       <Section className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className='absolute inset-0'>
-          <img
+          {/* <img
             src="/resources.png"
             alt="ABS Global resources"
             className="w-full h-full object-cover"
-          />
-          {/* <Image
-              src={`${resourcesContent.image}`}
+          /> */}
+          <Image
+              src={`${process.env.NEXT_PUBLIC_IMAGES}${resourcesContent.image}`}
               alt="ABS Global resources"
               fill
-              priority
               style={{ objectFit: 'cover' }}
-          /> */}
+          />
         </div>
 
         {/* Dark Overlay */}

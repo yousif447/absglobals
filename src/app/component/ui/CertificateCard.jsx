@@ -33,7 +33,7 @@ export default function CertificateCard({ data }) {
   return (
     <div
       ref={wrapperRef}
-      className="w-full overflow-hidden"
+      className="w-full overflow-hidden md:flex flex-col justify-center items-center"
       style={{ height: `calc(${scale} * var(--cert-natural-height, auto))` }}
     >
       <div
@@ -44,11 +44,11 @@ export default function CertificateCard({ data }) {
           transformOrigin: "top left",
         }}
       >
-        <div className="max-w-[580px] mx-auto flex border-2 border-[#1a6ab1] rounded-sm overflow-hidden bg-[url('/bg.jpeg')] bg-cover bg-no-repeat">
+        <div className="max-w-[580px] mx-auto flex border-2 border-[#1a6ab1] rounded-sm overflow-hidden bg-[url('/bg.jpeg')] bg-cover bg-no-repeat select-none">
 
           {/* Sidebar */}
           <div className="w-1/12 bg-[#1a6ab1] flex items-center justify-center shrink-0">
-            <span className="text-white text-[32px] tracking-widest whitespace-nowrap [writing-mode:vertical-rl] rotate-180" style={{ fontFamily: "fantasy" }}>
+            <span className="text-white text-[32px] font-medium tracking-widest whitespace-nowrap [writing-mode:vertical-rl] rotate-180" >
               {data.iso_item?.name} Certificate
             </span>
           </div>
@@ -75,10 +75,11 @@ export default function CertificateCard({ data }) {
 
               <div className="flex items-center justify-between gap-2.5 mb-2.5">
                 <h2 className="text-[18px] font-extrabold text-slate-900 uppercase tracking-wide leading-tight m-0">
-                  {data.company_name}
+                  {data.certifiable?.name}
                 </h2>
-                {data.company_logo && (
+                {data.certifiable?.logo && (
                   <div className="w-[62px] h-[62px] border border-slate-300 rounded flex items-center justify-center shrink-0 overflow-hidden bg-white">
+                    <Image src={data.certifiable.logo} alt="Company Logo" fill className="object-contain" />
                   </div>
                 )}
               </div>
@@ -100,11 +101,11 @@ export default function CertificateCard({ data }) {
                 <div className="rounded p-2.5 mb-2.5 space-y-1.5">
                   <div className="flex items-start text-[11.5px]">
                     <span className="font-bold text-slate-900 min-w-[110px] shrink-0 pt-px">Address:</span>
-                    <span className="text-slate-800 leading-snug">{data.company_address}</span>
+                    <span className="text-slate-800 leading-snug">{data.certifiable?.address}</span>
                   </div>
                   <div className="flex items-start text-[11.5px] py-2">
                     <span className="font-bold text-slate-900 min-w-[110px] shrink-0 pt-px">Scope:</span>
-                    <span className="text-slate-800 leading-snug">{data.scope}</span>
+                    <span className="text-slate-800 leading-snug">{data.certifiable?.scope}</span>
                   </div>
                   <div className="flex items-start text-[11.5px]">
                     <div className="flex flex-1">
@@ -142,11 +143,11 @@ export default function CertificateCard({ data }) {
                   <div className="absolute -top-9 left-0 text-[200px] font-extrabold text-[var(--primary-color)] shrink" style={{ fontFamily: "impact, sans-serif" }}>DRAFT</div>
                   <div className="flex items-start text-[11.5px]">
                     <span className="font-bold text-slate-900 min-w-[110px] shrink-0 pt-px">Address:</span>
-                    <span className="text-slate-800 leading-snug">{data.company_address}</span>
+                    <span className="text-slate-800 leading-snug">{data.certifiable?.address}</span>
                   </div>
                   <div className="flex items-start text-[11.5px] py-2">
                     <span className="font-bold text-slate-900 min-w-[110px] shrink-0 pt-px">Scope:</span>
-                    <span className="text-slate-800 leading-snug">{data.scope}</span>
+                    <span className="text-slate-800 leading-snug">{data.certifiable?.scope}</span>
                   </div>
                   <div className="flex items-start text-[11.5px]">
                     <div className="flex flex-1">
@@ -192,7 +193,7 @@ export default function CertificateCard({ data }) {
             <div className="grid grid-cols-3 gap-3 px-[18px] pl-[14px]">
               <div>
                 <Image
-                  src="/sign.png"
+                  src={data.logos?.signature}
                   alt="Signature"
                   width={150}
                   height={80}
@@ -202,16 +203,16 @@ export default function CertificateCard({ data }) {
               <div className="col-span-2">
                 <div className="grid grid-cols-4 gap-1.5">
                   <div className="relative h-24 w-full">
-                    <Image src="/iaf-logo.png" alt="IAF" fill className="object-contain" />
+                    <Image src={data.logos?.iaf} alt="IAF" fill className="object-contain" />
                   </div>
                   <div className="relative h-24 w-full">
-                    <Image src="/egac-logo.png" alt="EGAC" fill className="object-contain" />
+                    <Image src={data.logos?.egac} alt="EGAC" fill className="object-contain" />
                   </div>
                   <div className="relative h-24 w-full">
-                    <Image src="/iso9001-logo.png" alt="ISO 9001" fill className="object-contain" />
+                    <Image src={data.logos?.certificate} alt="ISO 9001" fill className="object-contain" />
                   </div>
                   <div className="relative h-24 w-full">
-                    <Image src="/qr-code.png" alt="QR Code" fill className="object-contain" />
+                    <Image src={data.logos?.validate-qr} alt="QR Code" fill className="object-contain" />
                   </div>
                 </div>
                 <div className="mt-1">
@@ -225,7 +226,6 @@ export default function CertificateCard({ data }) {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

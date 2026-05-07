@@ -13,18 +13,17 @@ export default function IndustriesServedPage({data, lang = "en"}) {
     <>
       <Section className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className='absolute inset-0'>
-          <img
+          {/* <img
             src="/industries-served.png"
             alt="ABS Global team and certification"
             className="w-full h-full object-cover"
-          />
-          {/* <Image
-              src={`${industriesContent.image}`}
+          /> */}
+          <Image
+              src={`${process.env.NEXT_PUBLIC_IMAGES}${industriesContent.image}`}
               alt="ABS Global team and certification"
               fill
-              priority
-              style={{ objectFit: 'fill' }}
-          /> */}
+              style={{ objectFit: 'cover' }}
+          />
         </div>
 
         {/* Dark Overlay */}

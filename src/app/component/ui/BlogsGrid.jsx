@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const INITIAL_COUNT = 6;
 
@@ -18,9 +19,6 @@ function formatDate(iso) {
 
 function BlogCard({ item, lang, featured = false }) {
   const excerpt = stripHtml(item.content).slice(0, featured ? 220 : 85) + "…";
-  // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog`);
-  // const data = await res.json();
-  // const view = data.sections.find(item => item.type === "Blog List").content.items[0].view_count;
 
   return (
     <Link
@@ -33,10 +31,11 @@ function BlogCard({ item, lang, featured = false }) {
       {/* Image */}
       <div className={`relative overflow-hidden flex-shrink-0
         ${featured ? "h-[200px] sm:h-full sm:w-[42%]" : "h-[180px]"}`}>
-        <img
-          src="/blogg.jpg"
+        <Image
+          src={`${process.env.NEXT_PUBLIC_IMAGES}${item.image}`}
           alt={item.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          fill
+          style={{ objectFit: 'cover' }}
         />
         {/* Gradient overlay bottom */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />

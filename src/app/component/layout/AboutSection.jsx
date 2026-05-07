@@ -58,20 +58,20 @@ export default function AboutSection({ data, lang = 'en' }) {
           >
             {/* about-image-wrapper */}
             <div className="relative rounded-[var(--radius-xl)] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
-              <img
+              {/* <img
                 src="/about.png"
                 alt="ABS Global team and certification"
                 width={600}
                 height={500}
                 style={{ objectFit: 'cover', borderRadius: 'var(--radius-xl)' }}
-              />
-              {/* <Image
-                src={aboutSection.image}
+              /> */}
+              <Image
+                src={`${process.env.NEXT_PUBLIC_IMAGES}${aboutSection.image}`}
                 alt="ABS Global team and certification"
                 width={600}
                 height={500}
                 style={{ objectFit: 'cover', borderRadius: 'var(--radius-xl)' }}
-              /> */}
+              />
             </div>
           </motion.div>
 

@@ -1,16 +1,16 @@
-import React from 'react'
-import AboutUsPage from '../../component/pages/AboutUsPage';
-import ServicePage from '../../component/pages/ServicePage';
-import ServicesPage from '../../component/pages/ServicesPage';
-import PartnersPage from '../../component/pages/PartnersPage';
-import IndustriesServedPage from '../../component/pages/IndustriesServedPage';
-import RecourcesPage from '../../component/pages/RecourcesPage';
-import ContactUsPage from '../../component/pages/ContactUsPage';
-import BlogsPage from '../../component/pages/BlogsPage';
-import BlogPage from '../../component/pages/BlogPage';
-import FaqPage from '../../component/pages/FaqPage';
-import ValidationPage from '../../component/pages/ValidationPage';
-import NotFound from '../../not-found';
+import React from "react";
+import AboutUsPage from "../../component/pages/AboutUsPage";
+import ServicePage from "../../component/pages/ServicePage";
+import ServicesPage from "../../component/pages/ServicesPage";
+import PartnersPage from "../../component/pages/PartnersPage";
+import IndustriesServedPage from "../../component/pages/IndustriesServedPage";
+import RecourcesPage from "../../component/pages/RecourcesPage";
+import ContactUsPage from "../../component/pages/ContactUsPage";
+import BlogsPage from "../../component/pages/BlogsPage";
+import BlogPage from "../../component/pages/BlogPage";
+import FaqPage from "../../component/pages/FaqPage";
+import ValidationPage from "../../component/pages/ValidationPage";
+import NotFound from "../../not-found";
 
 // ─── SEO metadata ───────────────────────────────────────────────────────────
 
@@ -35,15 +35,38 @@ function resolveEndpoint(pageSlug) {
   return `/${pageSlug[0]}`;
 }
 
+/**
+ * Returns the fetch cache option for the given page slug.
+ *
+ * SSG  (force-cache) → about-us, contact-us, faqs, resources, validation,
+ *                       our-partners, industries-served
+ * ISR  (revalidate)  → blog (listing page)
+ * SSR  (no-store)    → our-service (services listing page)
+ */
+function resolveCacheOption(pageSlug) {
+  const slug = pageSlug[0];
+
+  // SSR pages — always fetch fresh
+  const ssrPages = new Set(["our-service"]);
+  if (ssrPages.has(slug)) return { cache: "no-store" };
+
+  // ISR pages — revalidate every hour
+  const isrPages = new Set(["blog"]);
+  if (isrPages.has(slug)) return { next: { revalidate: 3600 } };
+
+  // SSG pages — cache indefinitely (build-time)
+  return { cache: "force-cache" };
+}
+
 export async function generateMetadata({ params }) {
   const { lang, pageSlug } = await params;
   const endpoint = resolveEndpoint(pageSlug);
 
-  if (endpoint && !endpoint.includes('/iso') && !endpoint.includes('/posts')){
+  if (endpoint && !endpoint.includes("/iso") && !endpoint.includes("/posts")) {
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/pages${endpoint}`,
-        { headers: { lang } }
+        { headers: { lang }, ...resolveCacheOption(pageSlug) },
       );
       if (!res.ok) throw new Error(`API returned ${res.status}`);
       const json = await res.json();
@@ -58,7 +81,10 @@ export async function generateMetadata({ params }) {
         };
       }
     } catch (err) {
-      console.error(`Failed to fetch SEO metadata for /${pageSlug.join("/")}:`, err.message);
+      console.error(
+        `Failed to fetch SEO metadata for /${pageSlug.join("/")}:`,
+        err.message,
+      );
     }
   }
 
@@ -112,13 +138,14 @@ export default async function page({ params }) {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/pages/${pageSlug[0]}`,
-      { headers: { lang } }
+      { headers: { lang }, ...resolveCacheOption(pageSlug) },
     );
-    if (!res.ok) throw new Error(`API returned ${res.status}: ${res.statusText}`);
+    if (!res.ok)
+      throw new Error(`API returned ${res.status}: ${res.statusText}`);
     const pages = await res.json();
     data = pages.data;
   } catch (err) {
-    console.error('Failed to fetch pages:', err.message);
+    console.error("Failed to fetch pages:", err.message);
   }
 
   if (!data) return <NotFound lang={lang} />;

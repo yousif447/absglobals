@@ -1,7 +1,7 @@
-// BlogPage.jsx
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Container from "../layout/Container";
+import Image from "next/image";
 
 function formatDate(iso) {
   if (!iso) return "";
@@ -25,8 +25,8 @@ function RelatedCard({ item, lang }) {
       href={`/${lang}/blog/${item.slug}`}
       className="group flex gap-3 p-3.5 rounded-xl border border-[#e8edf3] bg-white hover:border-[var(--primary-color)] hover:shadow-[0_4px_16px_rgba(55,118,189,0.1)] transition-all duration-300"
     >
-      <div className="flex-shrink-0 w-[72px] h-[72px] rounded-lg overflow-hidden">
-        <img src="/blog.png" alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400" />
+      <div className="relative flex-shrink-0 w-[72px] h-[72px] rounded-lg overflow-hidden">
+        <Image src={`${process.env.NEXT_PUBLIC_IMAGES}${item.image}`} alt={item.title} fill style={{ objectFit: "cover", objectPosition: "center" }} className="group-hover:scale-105 transition-transform duration-400" />
       </div>
       <div className={`flex flex-col justify-center gap-1 min-w-0 ${isAr ? "text-right" : ""}`}>
         {item.category && (
@@ -126,7 +126,7 @@ export default async function BlogPage({ lang, slug }) {
           lang,
           "view": "+1",
         },
-        cache: "no-store",
+        next: { revalidate: 3600 },
       }
     );
     if (!res.ok) throw new Error(`${res.status}`);
@@ -139,7 +139,7 @@ export default async function BlogPage({ lang, slug }) {
 
   if (!data) return notFound();
 
-  const { title, content, published_at, view_count, category } = data;
+  const { title, content, published_at, view_count, category, image } = data;
   const isAr = lang === "ar";
   const processedContent = preprocessContent(content);
 
@@ -148,7 +148,7 @@ export default async function BlogPage({ lang, slug }) {
 
       {/* ── HERO ── */}
       <div className="relative w-full h-[60vh] min-h-[380px] max-h-[520px] overflow-hidden">
-        <img src="/blogs.png" alt={title} className="w-full h-full object-cover" />
+        <Image src={`${process.env.NEXT_PUBLIC_IMAGES}${image}`} alt={title} fill className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10" />
         <div className={`absolute bottom-0 left-0 right-0 z-10 max-w-5xl mx-auto px-5 sm:px-8 pb-10 sm:pb-14 ${isAr ? "text-right" : "text-left"}`}>
 
@@ -231,7 +231,7 @@ export default async function BlogPage({ lang, slug }) {
                   className="group flex flex-col overflow-hidden rounded-2xl bg-white border border-[#e8edf3] shadow-sm hover:shadow-[0_6px_24px_rgba(55,118,189,0.13)] hover:-translate-y-1 hover:border-[var(--primary-color)] transition-all duration-300"
                 >
                   <div className="relative h-[150px] overflow-hidden">
-                    <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <Image src={`${process.env.NEXT_PUBLIC_IMAGES}${item.image}`} alt={item.title} fill className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     {item.category && (
                       <span className="absolute top-2.5 left-2.5 text-[0.6rem] font-bold tracking-widest uppercase bg-[var(--primary-color)] text-white px-2 py-0.5 rounded-full">
                         {item.category.name}

@@ -40,22 +40,23 @@ export default function OurPartnersSection({data, lang = "en"}) {
         {/* Partners Marquee */}
         <div className="partners-marquee-wrapper">
           <div className="partners-marquee-track">
-            {[...partnerSection.content.items, ...partnerSection.content.items, ...partnerSection.content.items,...partnerSection.content.items, ...partnerSection.content.items,...partnerSection.content.items,...partnerSection.content.items,...partnerSection.content.items, ...partnerSection.content.items].map((partner, index) => (
+            {[...partnerSection.content.items].map((partner, index) => (
               <a href={partner.url} target="_blank" key={index} className="partners-marquee-item">
-                <img
+                {/* <img
                   src="/marwa.png"
                   alt={partner.name}
                   width={120}
                   height={60}
                   className="object-contain"
-                  />
-                  {/* <Image
-                    src={partner.image}
+                  /> */}
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_IMAGES}${partner.image}`}
                     alt={partner.name}
                     width={64}
                     height={64}
+                    style={{ objectFit: 'cover' }}
                     className="object-contain transition-transform duration-500 group-hover:scale-110"
-                  /> */}
+                  />
               </a>
             ))}
           </div>

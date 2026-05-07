@@ -2,6 +2,7 @@ import Section from "../layout/Section";
 import TypewriterText from "../ui/TypewriterText";
 import Container from "../layout/Container";
 import BlogsGrid from "../ui/BlogsGrid";
+import Image from "next/image";
 
 export default function BlogsPage({ data, lang = "en" }) {
   const blogsHeader = data.sections.find(item => item.type === "Hero ").content[0];
@@ -11,9 +12,11 @@ export default function BlogsPage({ data, lang = "en" }) {
     <>
       {/* ── Hero ── */}
       <Section className="relative w-full min-h-[55vh] flex items-center justify-center overflow-hidden">
-        <img
-          src="/blog.png"
+        <Image
+          src={`${process.env.NEXT_PUBLIC_IMAGES}${blogsHeader.image}`}
           alt="Blog hero"
+          fill
+          priority
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />

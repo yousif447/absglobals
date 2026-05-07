@@ -10,8 +10,6 @@ import {
   FaWhatsapp,
   FaYoutube,
 } from "react-icons/fa6";
-import { BsTwitterX } from "react-icons/bs";
-import { HiOutlineMail } from "react-icons/hi";
 import {
   MdOutlineLocationOn,
   MdOutlinePhone,
@@ -27,12 +25,6 @@ export default function Footer({ lang = "en", settings = {} }) {
       icon: <FaFacebookF size={16} />,
       label: "Facebook",
       hoverClass: "social-facebook",
-    },
-    {
-      href: settings.twitter || "https://www.twitter.com/",
-      icon: <BsTwitterX size={16} />,
-      label: "Twitter",
-      hoverClass: "social-twitter",
     },
     {
       href: settings.instagram || "https://www.instagram.com/abs_global_certificate/",
@@ -152,15 +144,15 @@ export default function Footer({ lang = "en", settings = {} }) {
                   <span className="footer-contact-icon-wrap">
                     <MdOutlineEmail size={18} />
                   </span>
-                  <span>info@absglobal.com</span>
+                  <span>{settings.contactEmail || "info@absglobals.com"}</span>
                 </a>
 
-                <a href="https://wa.me/201026294642" target="_blank" className="footer-contact-item">
+                <div className="footer-contact-item">
                   <span className="footer-contact-icon-wrap">
                     <MdOutlinePhone size={18} />
                   </span>
-                  <span>+201026294642</span>
-                </a>
+                  <span>{settings.contactLandLine || "+20233731792"}</span>
+                </div>
 
                 <div style={{alignItems: "flex-start"}} className="footer-contact-item">
                   <span className="footer-contact-icon-wrap">

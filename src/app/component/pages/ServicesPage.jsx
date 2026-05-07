@@ -38,18 +38,17 @@ export default function ServicesPage({data, lang = 'en'}) {
     <>
     <Section className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <img
+      {/* <img
         src="/our-service.png"
         alt="ABS Global team and certification"
         className="absolute inset-0 w-full h-full object-cover"
-      />
-      {/* <Image
-        src={`${headerContent.image}`}
+      /> */}
+      <Image
+        src={`${process.env.NEXT_PUBLIC_IMAGES}${headerContent.image}`}
         alt="ABS Global team and certification"
         fill
-        priority
         style={{ objectFit: 'cover' }}
-      /> */}
+      />
 
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.9)] opacity-60 to-[rgba(0,0,0,0.85)]" />

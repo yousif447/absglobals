@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const INITIAL_COUNT = 6;
 
@@ -20,8 +21,8 @@ export default function CertificatesGrid({ items, lang }) {
           >
             {/* Logo / Image */}
             <div className="w-[72px] h-[72px] rounded-xl overflow-hidden flex-shrink-0 bg-[rgba(55,118,189,0.06)] flex items-center justify-center">
-              <img
-                src="/iso9001.jpg"
+              <Image
+                src={`${process.env.NEXT_PUBLIC_IMAGES}${item.image}`}
                 alt={item.name}
                 width={72}
                 height={72}

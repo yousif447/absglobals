@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 
 export default function HeroSection({ data, lang = 'en' }) {
   const heroSection = data.sections.find(section => section.type === "Hero").content[0];
+  console.log(`${process.env.NEXT_PUBLIC_IMAGES}${heroSection.image}`)
   return (
     /* hero-section */
     <section
@@ -15,9 +16,10 @@ export default function HeroSection({ data, lang = 'en' }) {
     >
       {/* hero-image-wrapper */}
       <div className="absolute inset-0 bg-gradient-to-b from-[rgba(15,23,42,0.82)_0%,rgba(15,23,42,0.6)_40%,rgba(55,118,189,0.35)_100%] opacity-100 to-[rgba(0,0,0,0.85)]">
-        <img
-          src="/image.jpg"
+        <Image
+          src={`${process.env.NEXT_PUBLIC_IMAGES}${heroSection.image}`}
           alt="ABS Global certification services hero background"
+          fill
           style={{ 
             position: 'absolute',
             inset: 0,

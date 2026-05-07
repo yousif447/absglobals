@@ -7,13 +7,15 @@ import Button from "../ui/Button";
 import NavLinks from "./NavLinks";
 import MobileMenu from "./MobileMenu";
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
 import { BsTwitterX } from "react-icons/bs";
 import LanguageToggle from "./LanguageToggle";
 import { t } from "../../i18n/navFooter";
+import { useSearchParams } from "next/navigation";
 
 export default function Navbar({ lang = "en", settings = {} }) {
   const [scrolled, setScrolled] = useState(false);
+  const searchParams = useSearchParams();
   const nav = t(lang, "nav");
 
   useEffect(() => {
@@ -24,6 +26,18 @@ export default function Navbar({ lang = "en", settings = {} }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const section = searchParams.get("scrollTo");
+    if (section) {
+      const el = document.getElementById(section);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [searchParams]);
+
   const socialLinks = [
     {
       href: settings.Facebook || "https://www.facebook.com/ABSGlobals",
@@ -33,11 +47,10 @@ export default function Navbar({ lang = "en", settings = {} }) {
         "hover:bg-[#1877F2] hover:shadow-[0_4px_14px_rgba(24,119,242,0.4)]",
     },
     {
-      href: settings.twitter || "https://www.twitter.com/",
-      icon: <BsTwitterX size={14} />,
-      label: "Twitter",
-      hoverClass:
-        "hover:bg-[#181818] hover:shadow-[0_4px_14px_rgba(29,161,242,0.4)]",
+      href: settings.whatsapp || "https://wa.me/+201026294642",
+      icon: <FaWhatsapp size={16} />,
+      label: "WhatsApp",
+      hoverClass: "hover:bg-[linear-gradient(135deg,#25D366,#128C7E)] hover:shadow-[0_4px_14px_rgba(37,211,102,0.4)]",
     },
     {
       href:
@@ -71,7 +84,7 @@ export default function Navbar({ lang = "en", settings = {} }) {
         <div className="flex items-center justify-between gap-4">
           <Link href={`/${lang}`} className="flex-shrink-0">
             <Image
-              src="/logo.png"
+              src={settings.logo || "/logo.png"}
               alt="ABS Global Logo"
               width={120}
               height={120}
@@ -108,7 +121,7 @@ export default function Navbar({ lang = "en", settings = {} }) {
             </div>
 
             <div className="hidden 2xl:block">
-              <Link href={"#contact"}>
+              <Link href={`/${lang}?scrollTo=contact`}>
                 <Button
                   className="py-2 px-3 rounded-[var(--radius-xl)]"
                   size="sm"

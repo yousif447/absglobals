@@ -3,7 +3,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Container from './Container';
 import Section from './Section';
 import { motion } from 'framer-motion';
 
@@ -18,8 +17,6 @@ export default function OurServicesSection({ data, lang = 'en' }) {
   return (
     /* services-section */
     <Section className="max-w-11/12 mx-auto px-4 sm:px-6 lg:px-8" id="services">
-      {/* <Container> */}
-
         {/* section-header-center */}
         <motion.div
           className="text-center mb-14"
@@ -44,7 +41,7 @@ export default function OurServicesSection({ data, lang = 'en' }) {
 
         {/* services-grid */}
         <div className="grid grid-cols-4 gap-7 max-lg:grid-cols-2 max-sm:grid-cols-1">
-          {serviceSection.content.items.map((item, index) => (
+          {serviceSection.content.items.slice(0, 8).map((item, index) => (
             /* service-card */
             <motion.div
               key={item.id}
@@ -60,15 +57,8 @@ export default function OurServicesSection({ data, lang = 'en' }) {
               }}
             >
               <div className="flex flex-col items-center gap-2 px-6 pt-8 pb-3 text-center">
-                {/* <Image
-                  src={item.image}
-                  alt={item.name}
-                  width={120}
-                  height={120}
-                  style={{ objectFit: 'cover', borderRadius: 'var(--radius-xl)' }}
-                /> */}
-                <img
-                  src="/iso9001.jpg"
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_IMAGES}${item.image}`}
                   alt={item.name}
                   width={120}
                   height={120}
@@ -118,8 +108,6 @@ export default function OurServicesSection({ data, lang = 'en' }) {
             </svg>
           </Link>
         </motion.div>
-
-      {/* </Container> */}
     </Section>
   );
 }

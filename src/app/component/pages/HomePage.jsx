@@ -13,7 +13,7 @@ export default async function HomePage({lang = "en"}) {
   let data;
   const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/pages/home`,
-      { headers: { lang } , cache: "no-store"}
+      { headers: { lang }, cache: "no-store" }
     );
     if (!res.ok) throw new Error(`API returned ${res.status}: ${res.statusText}`);
     const pages = await res.json();

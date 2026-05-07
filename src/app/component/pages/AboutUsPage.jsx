@@ -73,18 +73,18 @@ export default function AboutUsPage({ data, lang = "en" }) {
       {/* ── About Hero ── */}
       <Section className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
-        <img
+        {/* <img
           src="/about-us.png"
           alt="ABS Global team and certification"
           className="absolute inset-0 w-full h-full object-cover"
-        />
-        {/* <Image
-          src={`${aboutContent.image}`}
+        /> */}
+        <Image
+          src={`${process.env.NEXT_PUBLIC_IMAGES}${aboutContent.image}`}
           alt="ABS Global team and certification"
           fill
           priority
           style={{ objectFit: 'cover' }}
-        /> */}
+        />
 
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.7)] to-[rgba(0,0,0,0.85)]" />

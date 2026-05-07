@@ -6,7 +6,7 @@ export async function generateMetadata({ params }) {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/pages/home`,
-      { headers: { lang } }
+      { headers: { lang }, cache: "force-cache" }
     );
     if (!res.ok) throw new Error(`API returned ${res.status}`);
     const json = await res.json();
