@@ -13,6 +13,11 @@ const nextConfig = {
         hostname: "admin.srv1642786.hstgr.cloud",
         pathname: "/storage/**",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        pathname: "/**",
+      },
     ],
   },
 };

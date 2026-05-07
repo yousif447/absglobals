@@ -78,8 +78,8 @@ export default function CertificateCard({ data }) {
                   {data.certifiable?.name}
                 </h2>
                 {data.certifiable?.logo && (
-                  <div className="w-[62px] h-[62px] border border-slate-300 rounded flex items-center justify-center shrink-0 overflow-hidden bg-white">
-                    <Image src={data.certifiable.logo} alt="Company Logo" fill className="object-contain" />
+                  <div className="relative w-[62px] h-[62px] border border-slate-300 rounded flex items-center justify-center shrink-0 overflow-hidden bg-white">
+                    <Image src={`${process.env.NEXT_PUBLIC_IMAGES}${data.certifiable?.logo}`} alt="Company Logo" fill className="object-contain" />
                   </div>
                 )}
               </div>
@@ -202,17 +202,24 @@ export default function CertificateCard({ data }) {
               </div>
               <div className="col-span-2">
                 <div className="grid grid-cols-4 gap-1.5">
+                  {data.qr_codes ? (
+                    <div className="flex flex-col items-center gap-2 relative h-24 w-full mt-1">
+                      <Image src="/iaf-logo.png" alt="IAF" width={65} height={65} className="object-contain" />
+                      <Image src="/qr-code.png" alt="QR Code" width={45} height={45} className="object-contain" />
+                    </div>
+                  ) : (
+                    <div className="relative h-24 w-full">
+                      <Image src={data.logos.iaf} alt="IAF" fill className="object-contain" />
+                    </div>
+                  )}
                   <div className="relative h-24 w-full">
-                    <Image src={data.logos?.iaf} alt="IAF" fill className="object-contain" />
-                  </div>
-                  <div className="relative h-24 w-full">
-                    <Image src={data.logos?.egac} alt="EGAC" fill className="object-contain" />
+                    <Image src={data.logos.egac} alt="EGAC" fill className="object-contain" />
                   </div>
                   <div className="relative h-24 w-full">
                     <Image src={data.logos?.certificate} alt="ISO 9001" fill className="object-contain" />
                   </div>
                   <div className="relative h-24 w-full">
-                    <Image src={data.logos?.validate-qr} alt="QR Code" fill className="object-contain" />
+                    <Image src={data.logos["validate-qr"]} alt="QR Code" fill className="object-contain" />
                   </div>
                 </div>
                 <div className="mt-1">
