@@ -55,7 +55,7 @@ function resolveCacheOption(pageSlug) {
   if (isrPages.has(slug)) return { next: { revalidate: 3600 } };
 
   // SSG pages — cache indefinitely (build-time)
-  return { cache: "force-cache" };
+  return { next: { revalidate: false } };
 }
 
 export async function generateMetadata({ params }) {

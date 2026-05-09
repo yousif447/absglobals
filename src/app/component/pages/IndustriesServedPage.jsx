@@ -3,21 +3,15 @@ import React from 'react'
 import Section from '../layout/Section';
 import Container from '../layout/Container';
 import TypewriterText from '../ui/TypewriterText';
-import { v4 as uuid } from 'uuid';
 
 export default function IndustriesServedPage({data, lang = "en"}) {
   const industriesContent = data.sections.find(item => item.type === "Hero").content[0];
-  const items = industriesContent.sub_items || [];
+  const items =  data.faqs;
 
   return (
     <>
       <Section className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className='absolute inset-0'>
-          {/* <img
-            src="/industries-served.png"
-            alt="ABS Global team and certification"
-            className="w-full h-full object-cover"
-          /> */}
           <Image
               src={`${process.env.NEXT_PUBLIC_IMAGES}${industriesContent.image}`}
               alt="ABS Global team and certification"
@@ -52,7 +46,7 @@ export default function IndustriesServedPage({data, lang = "en"}) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {items.map((item, index) => (
-              <div key={uuid()} className="industry-row">
+              <div key={item.id} className="industry-row">
                 {/* Number */}
                 <span className="industry-number">
                   {String(index + 1).padStart(2, '0')}

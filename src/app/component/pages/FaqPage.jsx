@@ -6,7 +6,7 @@ import FaqAccordion from "../ui/FaqAccordion";
 
 export default function FaqPage({data, lang = "en"}) {
   const faqsContent = data.sections.find(item => item.type === "Hero").content[0];
-  const items = faqsContent.sub_items || [];
+  const items = data.faqs;
   
   return (
     <>

@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid';
 
 export default function RecourcesPage({ data, lang = "en" }) {
     const resourcesContent = data.sections.find(item => item.type === "Hero").content[0];
-    const items = resourcesContent.sub_items || [];
+    const items = data.faqs;
 
   return (
     <>
