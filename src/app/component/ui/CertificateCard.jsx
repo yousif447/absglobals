@@ -104,7 +104,11 @@ export default function CertificateCard({ data }) {
                     <span className="text-slate-800 leading-snug">{data.certifiable?.address}</span>
                   </div>
                   <div className="flex items-start text-[11.5px] py-2">
-                    <span className="font-bold text-slate-900 min-w-[110px] shrink-0 pt-px">Scope:</span>
+                    {data.iso_item?.name !== "UL 2900-2-3:2023" ? (
+                      <span className="font-bold text-slate-900 min-w-[110px] shrink-0 pt-px">Product:</span>
+                    ) : (
+                      <span className="font-bold text-slate-900 min-w-[110px] shrink-0 pt-px">Scope:</span>
+                    )}
                     <span className="text-slate-800 leading-snug">{data.certifiable?.scope}</span>
                   </div>
                   <div className="flex items-start text-[11.5px]">
