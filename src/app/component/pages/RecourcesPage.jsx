@@ -4,41 +4,31 @@ import Section from '../layout/Section';
 import Container from '../layout/Container';
 import { v4 as uuid } from 'uuid';
 
+const stripHtml = (html) => html?.replace(/<[^>]*>/g, '') ?? '';
+
 export default function RecourcesPage({ data, lang = "en" }) {
-    const resourcesContent = data.sections.find(item => item.type === "Hero").content[0];
-    const items = data.faqs;
+  const resourcesContent = data.sections.find(item => item.type === "Hero").content[0];
+  const items = data.faqs ?? [];
 
   return (
     <>
-      {/* ── Hero Banner ── */}
       <Section className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
         <div className='absolute inset-0'>
-          {/* <img
-            src="/resources.png"
-            alt="ABS Global resources"
-            className="w-full h-full object-cover"
-          /> */}
           <Image
-              src={`${process.env.NEXT_PUBLIC_IMAGES}${resourcesContent.image}`}
-              alt="ABS Global resources"
-              fill
-              style={{ objectFit: 'cover' }}
+            src={`${process.env.NEXT_PUBLIC_IMAGES}${resourcesContent.image}`}
+            alt="ABS Global resources"
+            fill
+            style={{ objectFit: 'cover' }}
           />
         </div>
-
-        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-linear-to-b from-[rgba(0,0,0,0.9)] opacity-80 to-[rgba(0,0,0,0.85)]" />
-
-            {/* Text Content */}
-            <div className="relative z-10 text-center px-6 py-20 max-w-7xl mx-auto">
-            <h2 className={`${lang === "ar" ? "font-heading" : "font-display"} text-[clamp(1.75rem,3.5vw,2.75rem)] font-bold text-blue-500 leading-[1.2] mb-4 drop-shadow-lg`}>
-                <TypewriterText text={resourcesContent.title} speed={50} />
-            </h2>
+        <div className="relative z-10 text-center px-6 py-20 max-w-7xl mx-auto">
+          <h2 className={`${lang === "ar" ? "font-heading" : "font-display"} text-[clamp(1.75rem,3.5vw,2.75rem)] font-bold text-blue-500 leading-[1.2] mb-4 drop-shadow-lg`}>
+            <TypewriterText text={resourcesContent.title} speed={50} />
+          </h2>
         </div>
       </Section>
 
-      {/* ── Resources Grid ── */}
       <Section>
         <Container>
           <div className="flex flex-col items-center mb-12">
@@ -53,16 +43,11 @@ export default function RecourcesPage({ data, lang = "en" }) {
           <div className="resource-grid">
             {items.map((item, index) => (
               <div key={uuid()} className="resource-tile">
-                {/* Number */}
                 <span className="industry-number pb-3">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-
-                {/* Text */}
                 <h3 className="resource-title">{item.title}</h3>
-                <p className="resource-desc">{item.description}</p>
-
-                {/* Bottom accent + arrow */}
+                <p className="resource-desc">{stripHtml(item.description)}</p>
                 <div className="resource-footer">
                   <svg className="resource-link-arrow" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -70,8 +55,6 @@ export default function RecourcesPage({ data, lang = "en" }) {
                     <polyline points="7 7 17 7 17 17" />
                   </svg>
                 </div>
-
-                {/* Hover accent line */}
                 <div className="resource-accent" />
               </div>
             ))}
@@ -79,5 +62,5 @@ export default function RecourcesPage({ data, lang = "en" }) {
         </Container>
       </Section>
     </>
-  )
+  );
 }
