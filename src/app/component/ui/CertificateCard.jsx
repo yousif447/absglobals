@@ -259,8 +259,20 @@ function formatDate(dateStr) {
 }
 
 export default function CertificateCard({ data }) {
+  if (data.type !== "published") {
+    return (
+      <div className="w-full flex flex-col items-center justify-center py-12 gap-4">
+        <p className="text-lg font-semibold text-gray-700">{data.certifiable?.name}</p>
+        <p className="text-[80px] font-extrabold text-gray-300 leading-none tracking-widest select-none"
+          style={{ fontFamily: "impact, sans-serif" }}>
+          DRAFT
+        </p>
+      </div>
+    );
+  }
+
   const rows = [
-    ["Certificate type", data.type === "published" ? "Published" : "Draft"],
+    ["Certificate type", "Published"],
     ["Company name", data.certifiable?.name],
     ["Address", data.certifiable?.address],
     [data.iso_item?.name === "UL 2900-2-3:2023" ? "Product" : "Scope", data.scope ?? data.certifiable?.scope],
