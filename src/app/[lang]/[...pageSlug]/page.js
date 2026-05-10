@@ -10,6 +10,7 @@ import BlogsPage from "../../component/pages/BlogsPage";
 import BlogPage from "../../component/pages/BlogPage";
 import FaqPage from "../../component/pages/FaqPage";
 import ValidationPage from "../../component/pages/ValidationPage";
+import ReportsPages from "../../component/pages/ReportsPages";
 import NotFound from "../../not-found";
 
 // ─── SEO metadata ───────────────────────────────────────────────────────────
@@ -28,7 +29,7 @@ function resolveEndpoint(pageSlug) {
     return `/posts/${pageSlug[1]}`;
   }
   // Pages with no backend data
-  const noDataPages = new Set(["contact-us", "validation"]);
+  const noDataPages = new Set(["contact-us", "validation", "reports"]);
   if (noDataPages.has(pageSlug[0])) return null;
 
   // All other pages  →  /{slug}
@@ -121,10 +122,11 @@ export default async function page({ params }) {
     "contact-us": ContactUsPage,
     faqs: FaqPage,
     validation: ValidationPage,
+    reports: ReportsPages,
   };
 
   // Pages that don't need backend data (form-only, static, etc.)
-  const noDataPages = new Set(["contact-us", "validation"]);
+  const noDataPages = new Set(["contact-us", "validation", "reports"]);
 
   const Component = pagesMap[pageSlug[0]];
   if (!Component) return <NotFound lang={lang} />;

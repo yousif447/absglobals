@@ -141,7 +141,7 @@ export default function ContactForm({ lang = "en" }) {
       <div className="contact-row">
         <div className="contact-field">
           <label className={`contact-label ${lang === 'ar' ? 'font-header' : 'font-display'}`}>
-            {contact.organizationName} <span className="contact-req">*</span>
+            {contact.organizationName}
           </label>
           <input
             type="text"
@@ -155,7 +155,7 @@ export default function ContactForm({ lang = "en" }) {
         </div>
         <div className="contact-field">
           <label className="contact-label">
-            {contact.address} <span className="contact-req">*</span>
+            {contact.address}
           </label>
           <input
             type="text"
@@ -182,7 +182,7 @@ export default function ContactForm({ lang = "en" }) {
         </div>
         <div className="contact-field">
           <label className="contact-label">
-            {contact.city} <span className="contact-req">*</span>
+            {contact.city}
           </label>
           <input
             type="text"
@@ -200,7 +200,7 @@ export default function ContactForm({ lang = "en" }) {
       <div className="contact-row">
         <div className="contact-field">
           <label className="contact-label">
-            {contact.postalCode} <span className="contact-req">*</span>
+            {contact.postalCode}
           </label>
           <input
             type="text"
@@ -213,7 +213,7 @@ export default function ContactForm({ lang = "en" }) {
           )}
         </div>
         <div className="contact-field">
-          <label className="contact-label">{contact.country} <span className="contact-req">*</span></label>
+          <label className="contact-label">{contact.country}</label>
           <select
             className={`contact-select ${errors.country ? 'contact-input--error' : ''}`}
             {...register('country')}
@@ -312,7 +312,7 @@ export default function ContactForm({ lang = "en" }) {
       <div className="contact-row">
         <div className="contact-field">
           <label className="contact-label">
-            {contact.scope} <span className="contact-req">*</span>
+            {contact.scope}
           </label>
           <input
             type="text"
@@ -326,7 +326,7 @@ export default function ContactForm({ lang = "en" }) {
         </div>
         <div className="contact-field">
           <label className="contact-label">
-            {contact.certificationType} <span className="contact-req">*</span>
+            {contact.certificationType}
           </label>
           <select
             className={`contact-select ${errors.certificationType ? 'contact-input--error' : ''}`}
@@ -348,7 +348,7 @@ export default function ContactForm({ lang = "en" }) {
       {/* ── Full-width: Comments ── */}
       <div className="contact-field">
         <label className="contact-label">
-          {contact.comments} <span className="contact-req">*</span>
+          {contact.comments}
         </label>
         <textarea
           className={`contact-textarea ${errors.comments ? 'contact-input--error' : ''}`}

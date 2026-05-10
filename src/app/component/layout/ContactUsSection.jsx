@@ -34,16 +34,31 @@ export default function ContactUsSection({lang = "en"}) {
           <div className="flex flex-col gap-6">
 
             {/* contact-map-wrapper */}
-            <div className="rounded-[var(--radius-lg)] overflow-hidden border border-[#e2e8f0] shadow-[0_4px_16px_rgba(0,0,0,0.06)]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.0277731200217!2d31.2315896752734!3d29.978631821686424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145847ac1b58b095%3A0xc442d010c8dc8696!2sAbs%20Globals%20(%20Maadi%20Office)!5e0!3m2!1sen!2seg!4v1776595226219!5m2!1sen!2seg"
-                width="100%"
-                height="260"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            <div className="grid grid-cols-2 gap-2 rounded-[var(--radius-lg)] overflow-hidden">
+              <div className='text-center'>
+                <p className={`${lang === "ar" ? "font-heading" : "font-display"} font-semibold text-[var(--primary-color)] bg-[rgba(55,118,189,0.08)] py-[0.35rem] rounded-xl mb-2`}>{lang === "ar" ? "فرع حدائق الأهرام" : "Hadayk Al-Ahram Branch"}</p>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.9238130541275!2d31.108233599999995!3d29.9667697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584f00713ce79f%3A0x8380fb2bffc1cdc3!2zQ2FsbWEgc3BhINmF2YbYqtis2Lkg2LXYrdmKINmE2YTYs9mK2K_Yp9iq!5e1!3m2!1sen!2seg!4v1778439781826!5m2!1sen!2seg"
+                  width="100%"
+                  height="260"
+                  style={{ border: 0, borderRadius: "var(--radius-lg)" }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+              <div className='text-center'>
+                <p className={`${lang === "ar" ? "font-heading" : "font-display"} font-semibold text-[var(--primary-color)] bg-[rgba(55,118,189,0.08)] py-[0.35rem] rounded-xl mb-2`}>{lang === "ar" ? "فرع المعادي" : "Maadi Branch"}</p>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.0277731200217!2d31.2315896752734!3d29.978631821686424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145847ac1b58b095%3A0xc442d010c8dc8696!2sAbs%20Globals%20(%20Maadi%20Office)!5e0!3m2!1sen!2seg!4v1776595226219!5m2!1sen!2seg"
+                  width="100%"
+                  height="260"
+                  style={{ border: 0, borderRadius: "var(--radius-lg)" }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
             </div>
 
             {/* contact-info-cards */}

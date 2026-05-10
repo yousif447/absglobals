@@ -29,7 +29,7 @@ export default function MobileMenu({ lang = "en" }) {
     { href: `/${lang}/our-partners`, label: nav.ourPartners },
     { href: `/${lang}/resources`, label: nav.resources },
     { href: `/${lang}/validation`, label: nav.validation },
-    { href: `/${lang}/contact-us`, label: nav.contact },
+    { href: `/${lang}/reports`, label: nav.report },
   ];
 
   const socialLinks = [
@@ -160,7 +160,9 @@ export default function MobileMenu({ lang = "en" }) {
                 <LanguageToggle />
               </div>
 
-              <Button className="w-full text-center">{nav.getInTouch}</Button>
+              <Link href={`/${lang}/contact-us`} onClick={() => setIsOpen(false)}>
+                <Button className="w-full text-center">{nav.contactUs}</Button>
+              </Link>
 
               <div className="mt-auto pt-8 pb-4">
                 <div className="flex items-center justify-center gap-3">

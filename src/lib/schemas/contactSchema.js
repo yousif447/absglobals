@@ -9,6 +9,7 @@ export const createContactSchema = (lang = "en") => {
     mobile: z.string()
       .min(1, ar ? "رقم الموبايل مطلوب!" : "Mobile Number is required!")
       .regex(/^\+\d+$/, ar ? "يجب أن يبدأ الرقم بـ '+' متبوعاً بكود الدولة" : "Must start with '+' followed by country code"),
+    certificate_number: z.string().optional(),
     message: z.string().optional()
   });
 };

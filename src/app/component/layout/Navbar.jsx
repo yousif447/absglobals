@@ -121,12 +121,12 @@ export default function Navbar({ lang = "en", settings = {} }) {
             </div>
 
             <div className="hidden 2xl:block">
-              <Link href={`/${lang}?scrollTo=contact`}>
+              <Link href={`/${lang}/contact-us`}>
                 <Button
                   className="py-2 px-3 rounded-[var(--radius-xl)]"
                   size="sm"
                 >
-                  {nav.getInTouch}
+                  {nav.contactUs}
                 </Button>
               </Link>
             </div>

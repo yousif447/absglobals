@@ -4,6 +4,7 @@ const translations = {
       home: "Home",
       about: "About",
       contact: "Contact",
+      report: "Report",
       services: "Services",
       blogs: "Blogs",
       faq: "FAQ",
@@ -12,6 +13,7 @@ const translations = {
       resources: "Resources",
       validation: "Validation",
       getInTouch: "Get in Touch",
+      contactUs: "Contact Us",
     },
     footer: {
       brandDesc:
@@ -44,6 +46,7 @@ const translations = {
       home: "الرئيسية",
       about: "عن الشركة",
       contact: "تواصل معنا",
+      report: "التقارير",
       services: "خدماتنا",
       blogs: "المدونة",
       faq: "الأسئلة الشائعة",
@@ -52,6 +55,7 @@ const translations = {
       resources: "الموارد",
       validation: "التحقق",
       getInTouch: "تواصل معنا",
+      contactUs: "تواصل معنا",
     },
     footer: {
       brandDesc:

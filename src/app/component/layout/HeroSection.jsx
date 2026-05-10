@@ -90,10 +90,11 @@ export default function HeroSection({ data, lang = 'en' }) {
           </Link>
 
           {/* hero-btn-secondary */}
-          <Link href={`/${lang}/contact-us`}
+          <a href="#contact"
+            onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
             className="inline-flex items-center gap-2 px-8 py-[0.9rem] rounded-[var(--radius-xl)] bg-white/10 backdrop-blur-sm border border-white/25 text-white text-base font-semibold no-underline transition-all duration-300 hover:bg-white/20 hover:-translate-y-0.5">
             {heroSection.sub_items[0].value}
-          </Link>
+          </a>
 
         </motion.div>
       </div>

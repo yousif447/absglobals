@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { createContactSchema } from '@/lib/schemas/contactSchema';
 import { t } from '@/app/i18n/contact';
 
-export default function ContactForm({lang = "en"}) {
+export default function ReportForm({lang = "en"}) {
     const schema = createContactSchema(lang);
     const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm({resolver: zodResolver(schema)});
     const contact = t(lang);
@@ -19,14 +19,14 @@ export default function ContactForm({lang = "en"}) {
 
     const onSubmit = async (data) => {
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact-us`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reports`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     name: data.fullName,
                     email: data.email,
                     phone: data.mobile,
-                    subject: "",
+                    certificate_number: data.certificateNumber ?? "",
                     message: data.message,
                 }),
             });
@@ -114,11 +114,11 @@ export default function ContactForm({lang = "en"}) {
             </div>
         )}
 
-        <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-6.5 py-1.5">
+        <form onSubmit={handleSubmit(onSubmit)} noValidate className="contact-form w-full lg:w-6/12">
 
             <div className="flex flex-col gap-[0.5rem]">
                 <label htmlFor="fullName" className="text-[0.85rem] font-semibold text-[#334155]">
-                {contact.fullName}*
+                {contact.fullName} <span className="text-[var(--secondary-color)]">*</span>
                 </label>
                 {errors.fullName && (
                 <p className="mt-1 text-sm text-red-600 bg-red-50 border border-red-200 px-3 py-2 rounded-md">
@@ -136,7 +136,7 @@ export default function ContactForm({lang = "en"}) {
 
             <div className="flex flex-col gap-[0.4rem]">
                 <label htmlFor="email" className="text-[0.85rem] font-semibold text-[#334155]">
-                {contact.emailAddress}*
+                {contact.emailAddress} <span className="text-[var(--secondary-color)]">*</span>
                 </label>
                 {errors.email && (
                 <p className="mt-1 text-sm text-red-600 bg-red-50 border border-red-200 px-3 py-2 rounded-md">
@@ -154,7 +154,7 @@ export default function ContactForm({lang = "en"}) {
 
             <div className="flex flex-col gap-[0.4rem]">
                 <label htmlFor="mobile" className="text-[0.85rem] font-semibold text-[#334155]">
-                {contact.mobile}
+                {contact.mobile} <span className="text-[var(--secondary-color)]">*</span>
                 </label>
                 {errors.mobile && (
                 <p className="mt-1 text-sm text-red-600 bg-red-50 border border-red-200 px-3 py-2 rounded-md">
@@ -168,6 +168,24 @@ export default function ContactForm({lang = "en"}) {
                 id="mobile"
                 placeholder={contact.phonePlaceholder}
                 className="px-4 py-3 rounded-md border-[1.5px] border-[#e2e8f0] bg-white text-[#0f172a] text-[0.9rem] font-primary outline-none placeholder:text-[#94a3b8] transition-all duration-300 focus:border-[#5090ce] focus:shadow-[0_0_0_3px_rgba(55,118,189,0.1)]"
+                />
+            </div>
+
+            <div className="flex flex-col gap-[0.4rem]">
+                <label htmlFor="certificateNumber" className="text-[0.85rem] font-semibold text-[#334155]">
+                    {lang === "ar" ? "رقم الشهادة" : "Certificate Number"} <span className="text-[var(--secondary-color)]">*</span>
+                </label>
+                {errors.certificateNumber && (
+                    <p className="mt-1 text-sm text-red-600 bg-red-50 border border-red-200 px-3 py-2 rounded-md">
+                        {errors.certificateNumber.message}
+                    </p>
+                )}
+                <input
+                    {...register("certificateNumber")}
+                    type="text"
+                    id="certificateNumber"
+                    placeholder={lang === "ar" ? "أدخل رقم الشهادة" : "Enter certificate number"}
+                    className="px-4 py-3 rounded-md border-[1.5px] border-[#e2e8f0] bg-white text-[#0f172a] text-[0.9rem] font-primary outline-none placeholder:text-[#94a3b8] transition-all duration-300 focus:border-[#5090ce] focus:shadow-[0_0_0_3px_rgba(55,118,189,0.1)]"
                 />
             </div>
 

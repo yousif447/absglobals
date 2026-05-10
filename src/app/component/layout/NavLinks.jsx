@@ -21,7 +21,7 @@ export default function NavLinks({ lang = "en" }) {
     { href: `/${lang}/our-partners`, label: nav.ourPartners },
     { href: `/${lang}/resources`, label: nav.resources },
     { href: `/${lang}/validation`, label: nav.validation },
-    { href: `/${lang}/contact-us`, label: nav.contact },
+    { href: `/${lang}/reports`, label: nav.report },
   ];
 
   const indicatorTarget = hoveredHref ?? pathname;

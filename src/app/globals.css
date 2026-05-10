@@ -25,6 +25,11 @@
     --radius-xl: 24px;
 }
 
+@keyframes mena-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 @layer utilities {
   .font-primary {
     font-family: var(--font-primary);
