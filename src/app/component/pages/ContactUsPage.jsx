@@ -102,7 +102,7 @@ export default function ContactUsPage({ lang = "en" }) {
       {/* ── Form Section ── */}
       <Section>
         <Container>
-          <MenaFlags />
+          <MenaFlags lang={lang}/>
           <div className="flex flex-col items-center mb-12">
             <h2
               className={`${lang === "ar" ? "font-heading" : "font-display"} text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-[#0f172a] leading-[1.2] text-center mb-2`}
