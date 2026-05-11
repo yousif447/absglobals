@@ -46,7 +46,7 @@ const translations = {
       home: "الرئيسية",
       about: "عن الشركة",
       contact: "تواصل معنا",
-      report: "التقارير",
+      report: "إبلاغ",
       services: "خدماتنا",
       blogs: "المدونة",
       faq: "الأسئلة الشائعة",

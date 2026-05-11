@@ -10,7 +10,7 @@ export default function ReportsPages({ lang = "en" }) {
         <Section className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden">
             {/* Background Image */}
             <Image
-                src="/contact-us.jpg"
+                src="/report.jpg"
                 alt="ABS Global team and certification"
                 fill
                 priority

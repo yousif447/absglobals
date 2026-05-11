@@ -295,7 +295,7 @@ export default function ValidationPage({ lang = "en" }) {
         className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden"
       >
         <Image
-          src="/valid.png"
+          src="/Check the Authenticity of Your Certificate.jpg"
           alt="ABS Global Validation Page"
           fill
           style={{ objectFit: "cover" }}
