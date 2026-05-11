@@ -126,7 +126,7 @@ export default function Navbar({ lang = "en", settings = {} }) {
                   className="py-2 px-3 rounded-[var(--radius-xl)]"
                   size="sm"
                 >
-                  {nav.contactUs}
+                  {nav.requestCertificate}
                 </Button>
               </Link>
             </div>

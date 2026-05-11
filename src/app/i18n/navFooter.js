@@ -13,7 +13,7 @@ const translations = {
       resources: "Resources",
       validation: "Validation",
       getInTouch: "Get in Touch",
-      contactUs: "Contact Us",
+      requestCertificate: "Request a Certificate",
     },
     footer: {
       brandDesc:
@@ -55,7 +55,7 @@ const translations = {
       resources: "الموارد",
       validation: "التحقق",
       getInTouch: "تواصل معنا",
-      contactUs: "تواصل معنا",
+      requestCertificate: "طلب شهادة",
     },
     footer: {
       brandDesc:
