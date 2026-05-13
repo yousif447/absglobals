@@ -151,7 +151,7 @@ export default function Footer({ lang = "en", settings = {} }) {
                   <span className="footer-contact-icon-wrap">
                     <MdOutlinePhone size={18} />
                   </span>
-                  <span>{settings.contactLandLine || "+20233731792"}</span>
+                  <span>{settings.landLine || "+20233731792"}</span>
                 </div>
 
                 <div style={{alignItems: "flex-start"}} className="footer-contact-item">
