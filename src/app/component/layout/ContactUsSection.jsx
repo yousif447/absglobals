@@ -44,6 +44,7 @@ export default function ContactUsSection({lang = "en"}) {
                   style={{ border: 0, borderRadius: "var(--radius-lg)" }}
                   allowFullScreen=""
                   loading="lazy"
+                  suppressHydrationWarning
                   referrerPolicy="no-referrer-when-downgrade">
                 </iframe>
               </div>
