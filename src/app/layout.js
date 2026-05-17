@@ -34,7 +34,6 @@ export default function RootLayout({ children }) {
       className={`${inter.variable} ${asul.variable} ${ notoSansArabic.variable} ${rubik.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* <BreadCrumb/> */}
         {children}
       </body>
     </html>
