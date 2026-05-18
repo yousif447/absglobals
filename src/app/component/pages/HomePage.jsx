@@ -27,7 +27,7 @@ export default async function HomePage({lang = "en"}) {
             <AboutSection data={data} lang={lang}/>
           </Section>
         </AnimateOnScroll>
-        <AnimateOnScroll variant="fadeUp" duration={0.8} delay={0.1}>
+        <AnimateOnScroll variant="fadeUp" duration={0.8} delay={0.1} amount={0.05}>
           <section className='bg-linear-to-b from-[#f8fafc] to-[#f1f5f9]'>
             <OurServicesSection data={data} lang={lang}/>
           </section>
