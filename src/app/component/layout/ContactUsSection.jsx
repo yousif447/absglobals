@@ -34,7 +34,7 @@ export default function ContactUsSection({lang = "en"}) {
           <div className="flex flex-col gap-6">
 
             {/* contact-map-wrapper */}
-            <div className="grid grid-cols-2 gap-2 rounded-[var(--radius-lg)] overflow-hidden">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-2 rounded-[var(--radius-lg)] overflow-hidden">
               <div className='text-center'>
                 <p className={`${lang === "ar" ? "font-heading" : "font-display"} font-semibold text-[var(--primary-color)] bg-[rgba(55,118,189,0.08)] py-[0.35rem] rounded-xl mb-2`}>{lang === "ar" ? "فرع حدائق الأهرام" : "Hadayk Al-Ahram Branch"}</p>
                 <iframe
