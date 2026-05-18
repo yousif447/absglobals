@@ -3,7 +3,7 @@ const translations = {
     nav: {
       home: "Home",
       about: "About",
-      contact: "Contact",
+      contact: "Contact Us",
       report: "Report",
       services: "Services",
       blogs: "Blogs",

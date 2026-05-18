@@ -161,7 +161,7 @@ export default function MobileMenu({ lang = "en" }) {
               </div>
 
               <Link href={`/${lang}/contact-us`} onClick={() => setIsOpen(false)}>
-                <Button className="w-full text-center">{nav.contactUs}</Button>
+                <Button className="w-8/9 text-center">{nav.contact}</Button>
               </Link>
 
               <div className="mt-auto pt-8 pb-4">
