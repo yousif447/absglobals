@@ -31,7 +31,6 @@ export async function generateMetadata({ params }) {
 
 export default async function Home({params}) {
   const {lang} = await params;
-  console.log(lang)
   return (
     <div>
       <HomePage lang={lang}/>

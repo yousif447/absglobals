@@ -28,14 +28,6 @@ export default function HeroSection({ data, lang = 'en' }) {
             objectPosition: 'center' 
           }}
         />
-        {/* <Image
-          src={heroSection.image}
-          alt="ABS Global certification services hero background"
-          fill
-          priority
-          sizes="100vw"
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
-        /> */}
         {/* hero-overlay */}
         <div className="absolute inset-0 z-1 bg-[linear-gradient(135deg,rgba(15,23,42,0.82)_0%,rgba(15,23,42,0.6)_40%,rgba(55,118,189,0.35)_100%)]" />
       </div>

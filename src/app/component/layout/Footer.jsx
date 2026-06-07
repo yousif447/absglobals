@@ -27,13 +27,17 @@ export default function Footer({ lang = "en", settings = {} }) {
       hoverClass: "social-facebook",
     },
     {
-      href: settings.instagram || "https://www.instagram.com/abs_global_certificate/",
+      href:
+        settings.instagram ||
+        "https://www.instagram.com/abs_global_certificate/",
       icon: <FaInstagram size={16} />,
       label: "Instagram",
       hoverClass: "social-instagram",
     },
     {
-      href: settings.linkedin || "https://www.linkedin.com/company/absglobal-iso-service",
+      href:
+        settings.linkedin ||
+        "https://www.linkedin.com/company/absglobal-iso-service",
       icon: <FaLinkedinIn size={16} />,
       label: "LinkedIn",
       hoverClass: "social-linkedin",
@@ -85,9 +89,7 @@ export default function Footer({ lang = "en", settings = {} }) {
                   height={140}
                 />
               </Link>
-              <p className="footer-brand-desc">
-                {footer.brandDesc}
-              </p>
+              <p className="footer-brand-desc">{footer.brandDesc}</p>
 
               <div className="footer-social-row">
                 {socialLinks.map((link) => (
@@ -106,7 +108,11 @@ export default function Footer({ lang = "en", settings = {} }) {
             </div>
 
             <div className="footer-links-col">
-              <h4 className={`footer-col-title ${lang === "ar" ? "font-heading" : "font-display"}`}>{footer.quickLinksTitle}</h4>
+              <h4
+                className={`footer-col-title ${lang === "ar" ? "font-heading" : "font-display"}`}
+              >
+                {footer.quickLinksTitle}
+              </h4>
               <ul className="footer-link-list">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
@@ -154,7 +160,10 @@ export default function Footer({ lang = "en", settings = {} }) {
                   <span>{settings.landLine || "+20233731792"}</span>
                 </div>
 
-                <div style={{alignItems: "flex-start"}} className="footer-contact-item">
+                <div
+                  style={{ alignItems: "flex-start" }}
+                  className="footer-contact-item"
+                >
                   <span className="footer-contact-icon-wrap">
                     <MdOutlineLocationOn size={18} />
                   </span>

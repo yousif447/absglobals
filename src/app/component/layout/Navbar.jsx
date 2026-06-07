@@ -8,7 +8,6 @@ import NavLinks from "./NavLinks";
 import MobileMenu from "./MobileMenu";
 import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
-import { BsTwitterX } from "react-icons/bs";
 import LanguageToggle from "./LanguageToggle";
 import { t } from "../../i18n/navFooter";
 import { useSearchParams } from "next/navigation";

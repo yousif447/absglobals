@@ -42,13 +42,6 @@ export default function OurPartnersSection({data, lang = "en"}) {
           <div className="partners-marquee-track">
             {[...partnerSection.content.items].map((partner, index) => (
               <a href={partner.url} target="_blank" key={index} className="partners-marquee-item">
-                {/* <img
-                  src="/marwa.png"
-                  alt={partner.name}
-                  width={120}
-                  height={60}
-                  className="object-contain"
-                  /> */}
                   <Image
                     src={`${process.env.NEXT_PUBLIC_IMAGES}${partner.image}`}
                     alt={partner.name}
